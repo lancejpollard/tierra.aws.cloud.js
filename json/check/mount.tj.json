@@ -1,0 +1,19 @@
+{
+  "resource": {
+    "aws_globalaccelerator_accelerator": {
+      "world": {
+        "name": "world",
+        "ip_address_type": "IPV4",
+        "enabled": true
+      }
+    }
+  },
+  "module": {
+    "california": {
+      "source": "../california"
+    },
+    "oregon": {
+      "source": "../oregon"
+    }
+  }
+}

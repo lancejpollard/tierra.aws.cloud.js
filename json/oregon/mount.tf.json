@@ -1,0 +1,66 @@
+{
+  "provider": {
+    "aws": {
+      "region": "us-west-2"
+    }
+  },
+  "resource": {
+    "aws_vpc": {
+      "oregon": {
+        "cidr_block": "10.2.0.0/16"
+      }
+    },
+    "aws_subnet": {
+      "oregon_us_west_2a_gateway": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.0.0/21",
+        "availability_zone": "us-west-2a"
+      },
+      "oregon_us_west_2a_compute": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.1.0/21",
+        "availability_zone": "us-west-2a"
+      },
+      "oregon_us_west_2a_storage": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.2.0/21",
+        "availability_zone": "us-west-2a"
+      },
+      "oregon_us_west_2b_gateway": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.3.0/21",
+        "availability_zone": "us-west-2b"
+      },
+      "oregon_us_west_2b_compute": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.4.0/21",
+        "availability_zone": "us-west-2b"
+      },
+      "oregon_us_west_2b_storage": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.5.0/21",
+        "availability_zone": "us-west-2b"
+      },
+      "oregon_us_west_2c_gateway": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.6.0/21",
+        "availability_zone": "us-west-2c"
+      },
+      "oregon_us_west_2c_compute": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.7.0/21",
+        "availability_zone": "us-west-2c"
+      },
+      "oregon_us_west_2c_storage": {
+        "vpc_id": "${aws_vpc.oregon.id}",
+        "cidr_block": "10.2.8.0/21",
+        "availability_zone": "us-west-2c"
+      }
+    }
+  },
+  "output": {
+    "lb_arn": {
+      "value": "${aws_lb.lb.arn}"
+    }
+  }
+}

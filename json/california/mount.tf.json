@@ -1,0 +1,82 @@
+{
+  "provider": {
+    "aws": {
+      "region": "us-west-1"
+    }
+  },
+  "resource": {
+    "aws_vpc": {
+      "california": {
+        "cidr_block": "10.1.0.0/16"
+      }
+    },
+    "aws_lb": {
+      "lb": {
+        "name": "california",
+        "internal": false,
+        "load_balancer_type": "application",
+        "security_groups": [
+          "${aws_security_group.https.id}"
+        ],
+        "subnets": [
+          "${aws_subnet.california_us_west_1a_gateway.id}",
+          "${aws_subnet.california_us_west_1b_gateway.id}",
+          "${aws_subnet.california_us_west_1c_gateway.id}"
+        ],
+        "enable_http2": true
+      }
+    },
+    "aws_subnet": {
+      "california_us_west_1a_gateway": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.0.0/21",
+        "availability_zone": "us-west-1a"
+      },
+      "california_us_west_1a_compute": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.1.0/21",
+        "availability_zone": "us-west-1a"
+      },
+      "california_us_west_1a_storage": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.2.0/21",
+        "availability_zone": "us-west-1a"
+      },
+      "california_us_west_1b_gateway": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.3.0/21",
+        "availability_zone": "us-west-1b"
+      },
+      "california_us_west_1b_compute": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.4.0/21",
+        "availability_zone": "us-west-1b"
+      },
+      "california_us_west_1b_storage": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.5.0/21",
+        "availability_zone": "us-west-1b"
+      },
+      "california_us_west_1c_gateway": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.6.0/21",
+        "availability_zone": "us-west-1c"
+      },
+      "california_us_west_1c_compute": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.7.0/21",
+        "availability_zone": "us-west-1c"
+      },
+      "california_us_west_1c_storage": {
+        "vpc_id": "${aws_vpc.california.id}",
+        "cidr_block": "10.1.8.0/21",
+        "availability_zone": "us-west-1c"
+      }
+    }
+  },
+  "output": {
+    "lb_arn": {
+      "value": "${aws_lb.lb.arn}"
+    }
+  }
+}
