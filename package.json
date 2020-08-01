@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "moment": "^2.27.0"
   },
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/lancejpollard/tierra.aws.cloud.js#readme",
   "files": [
-    "./index.js",
-    "./fast/index.js"
+    "fast/index.js",
+    "index.js"
   ]
 }
