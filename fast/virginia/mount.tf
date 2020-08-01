@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
   
   tags = {
     name = "vpc"
-    env = "front"
+    env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -35,7 +35,7 @@ resource "aws_lb" "lb" {
   
   tags = {
     name = "vpc"
-    env = "front"
+    env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -50,7 +50,7 @@ resource "aws_lb_target_group" "virginia_gateway" {
   
   tags = {
     name = "virginia_gateway"
-    env = "front"
+    env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -68,7 +68,7 @@ resource "aws_acm_certificate" "virginia_gateway" {
   
   tags = {
     name = "virginia_gateway"
-    env = "front"
+    env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -94,7 +94,7 @@ resource "aws_internet_gateway" "ig" {
   
   tags = {
     name = "ig"
-    env = "front"
+    env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -257,7 +257,7 @@ resource "aws_eip" "us_east_1a_gateway" {
   
   tags = {
     name = "us_east_1a_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -275,7 +275,7 @@ resource "aws_nat_gateway" "us_east_1a_gateway" {
     region = "us-east-1"
     zone = "us-east-1a"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -287,7 +287,7 @@ resource "aws_subnet" "us_east_1a_gateway" {
   availability_zone = "us-east-1a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -301,7 +301,7 @@ resource "aws_route_table" "us_east_1a_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -331,7 +331,7 @@ resource "aws_subnet" "us_east_1a_compute" {
   availability_zone = "us-east-1a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -345,7 +345,7 @@ resource "aws_route_table" "us_east_1a_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -385,7 +385,7 @@ resource "aws_subnet" "us_east_1a_storage" {
   availability_zone = "us-east-1a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -399,7 +399,7 @@ resource "aws_route_table" "us_east_1a_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -429,7 +429,7 @@ resource "aws_subnet" "us_east_1a_connect" {
   availability_zone = "us-east-1a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -443,7 +443,7 @@ resource "aws_route_table" "us_east_1a_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -479,7 +479,7 @@ resource "aws_network_acl" "us_east_1a_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -513,7 +513,7 @@ resource "aws_eip" "us_east_1b_gateway" {
   
   tags = {
     name = "us_east_1b_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -531,7 +531,7 @@ resource "aws_nat_gateway" "us_east_1b_gateway" {
     region = "us-east-1"
     zone = "us-east-1b"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -543,7 +543,7 @@ resource "aws_subnet" "us_east_1b_gateway" {
   availability_zone = "us-east-1b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -557,7 +557,7 @@ resource "aws_route_table" "us_east_1b_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -587,7 +587,7 @@ resource "aws_subnet" "us_east_1b_compute" {
   availability_zone = "us-east-1b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -601,7 +601,7 @@ resource "aws_route_table" "us_east_1b_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -641,7 +641,7 @@ resource "aws_subnet" "us_east_1b_storage" {
   availability_zone = "us-east-1b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -655,7 +655,7 @@ resource "aws_route_table" "us_east_1b_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -685,7 +685,7 @@ resource "aws_subnet" "us_east_1b_connect" {
   availability_zone = "us-east-1b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -699,7 +699,7 @@ resource "aws_route_table" "us_east_1b_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -735,7 +735,7 @@ resource "aws_network_acl" "us_east_1b_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -769,7 +769,7 @@ resource "aws_eip" "us_east_1c_gateway" {
   
   tags = {
     name = "us_east_1c_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -787,7 +787,7 @@ resource "aws_nat_gateway" "us_east_1c_gateway" {
     region = "us-east-1"
     zone = "us-east-1c"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -799,7 +799,7 @@ resource "aws_subnet" "us_east_1c_gateway" {
   availability_zone = "us-east-1c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -813,7 +813,7 @@ resource "aws_route_table" "us_east_1c_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -843,7 +843,7 @@ resource "aws_subnet" "us_east_1c_compute" {
   availability_zone = "us-east-1c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -857,7 +857,7 @@ resource "aws_route_table" "us_east_1c_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -897,7 +897,7 @@ resource "aws_subnet" "us_east_1c_storage" {
   availability_zone = "us-east-1c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -911,7 +911,7 @@ resource "aws_route_table" "us_east_1c_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -941,7 +941,7 @@ resource "aws_subnet" "us_east_1c_connect" {
   availability_zone = "us-east-1c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -955,7 +955,7 @@ resource "aws_route_table" "us_east_1c_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -991,7 +991,7 @@ resource "aws_network_acl" "us_east_1c_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1025,7 +1025,7 @@ resource "aws_eip" "us_east_1d_gateway" {
   
   tags = {
     name = "us_east_1d_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1043,7 +1043,7 @@ resource "aws_nat_gateway" "us_east_1d_gateway" {
     region = "us-east-1"
     zone = "us-east-1d"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -1055,7 +1055,7 @@ resource "aws_subnet" "us_east_1d_gateway" {
   availability_zone = "us-east-1d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1069,7 +1069,7 @@ resource "aws_route_table" "us_east_1d_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1099,7 +1099,7 @@ resource "aws_subnet" "us_east_1d_compute" {
   availability_zone = "us-east-1d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1113,7 +1113,7 @@ resource "aws_route_table" "us_east_1d_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1153,7 +1153,7 @@ resource "aws_subnet" "us_east_1d_storage" {
   availability_zone = "us-east-1d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1167,7 +1167,7 @@ resource "aws_route_table" "us_east_1d_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1197,7 +1197,7 @@ resource "aws_subnet" "us_east_1d_connect" {
   availability_zone = "us-east-1d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1211,7 +1211,7 @@ resource "aws_route_table" "us_east_1d_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1247,7 +1247,7 @@ resource "aws_network_acl" "us_east_1d_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1281,7 +1281,7 @@ resource "aws_eip" "us_east_1e_gateway" {
   
   tags = {
     name = "us_east_1e_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1299,7 +1299,7 @@ resource "aws_nat_gateway" "us_east_1e_gateway" {
     region = "us-east-1"
     zone = "us-east-1e"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -1311,7 +1311,7 @@ resource "aws_subnet" "us_east_1e_gateway" {
   availability_zone = "us-east-1e"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1325,7 +1325,7 @@ resource "aws_route_table" "us_east_1e_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1355,7 +1355,7 @@ resource "aws_subnet" "us_east_1e_compute" {
   availability_zone = "us-east-1e"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1369,7 +1369,7 @@ resource "aws_route_table" "us_east_1e_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1409,7 +1409,7 @@ resource "aws_subnet" "us_east_1e_storage" {
   availability_zone = "us-east-1e"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1423,7 +1423,7 @@ resource "aws_route_table" "us_east_1e_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1453,7 +1453,7 @@ resource "aws_subnet" "us_east_1e_connect" {
   availability_zone = "us-east-1e"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1467,7 +1467,7 @@ resource "aws_route_table" "us_east_1e_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1503,7 +1503,7 @@ resource "aws_network_acl" "us_east_1e_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1537,7 +1537,7 @@ resource "aws_eip" "us_east_1f_gateway" {
   
   tags = {
     name = "us_east_1f_gateway"
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1555,7 +1555,7 @@ resource "aws_nat_gateway" "us_east_1f_gateway" {
     region = "us-east-1"
     zone = "us-east-1f"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -1567,7 +1567,7 @@ resource "aws_subnet" "us_east_1f_gateway" {
   availability_zone = "us-east-1f"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1581,7 +1581,7 @@ resource "aws_route_table" "us_east_1f_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1611,7 +1611,7 @@ resource "aws_subnet" "us_east_1f_compute" {
   availability_zone = "us-east-1f"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1625,7 +1625,7 @@ resource "aws_route_table" "us_east_1f_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1665,7 +1665,7 @@ resource "aws_subnet" "us_east_1f_storage" {
   availability_zone = "us-east-1f"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1679,7 +1679,7 @@ resource "aws_route_table" "us_east_1f_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1709,7 +1709,7 @@ resource "aws_subnet" "us_east_1f_connect" {
   availability_zone = "us-east-1f"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1723,7 +1723,7 @@ resource "aws_route_table" "us_east_1f_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
@@ -1759,7 +1759,7 @@ resource "aws_network_acl" "us_east_1f_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"

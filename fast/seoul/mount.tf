@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
   
   tags = {
     name = "vpc"
-    env = "front"
+    env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -33,7 +33,7 @@ resource "aws_lb" "lb" {
   
   tags = {
     name = "vpc"
-    env = "front"
+    env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -48,7 +48,7 @@ resource "aws_lb_target_group" "seoul_gateway" {
   
   tags = {
     name = "seoul_gateway"
-    env = "front"
+    env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -66,7 +66,7 @@ resource "aws_acm_certificate" "seoul_gateway" {
   
   tags = {
     name = "seoul_gateway"
-    env = "front"
+    env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -92,7 +92,7 @@ resource "aws_internet_gateway" "ig" {
   
   tags = {
     name = "ig"
-    env = "front"
+    env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
     build_version = "1.0.2"
@@ -255,7 +255,7 @@ resource "aws_eip" "ap_northeast_2a_gateway" {
   
   tags = {
     name = "ap_northeast_2a_gateway"
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -273,7 +273,7 @@ resource "aws_nat_gateway" "ap_northeast_2a_gateway" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -285,7 +285,7 @@ resource "aws_subnet" "ap_northeast_2a_gateway" {
   availability_zone = "ap-northeast-2a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -299,7 +299,7 @@ resource "aws_route_table" "ap_northeast_2a_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -329,7 +329,7 @@ resource "aws_subnet" "ap_northeast_2a_compute" {
   availability_zone = "ap-northeast-2a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -343,7 +343,7 @@ resource "aws_route_table" "ap_northeast_2a_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -383,7 +383,7 @@ resource "aws_subnet" "ap_northeast_2a_storage" {
   availability_zone = "ap-northeast-2a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -397,7 +397,7 @@ resource "aws_route_table" "ap_northeast_2a_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -427,7 +427,7 @@ resource "aws_subnet" "ap_northeast_2a_connect" {
   availability_zone = "ap-northeast-2a"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -441,7 +441,7 @@ resource "aws_route_table" "ap_northeast_2a_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -477,7 +477,7 @@ resource "aws_network_acl" "ap_northeast_2a_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -511,7 +511,7 @@ resource "aws_eip" "ap_northeast_2b_gateway" {
   
   tags = {
     name = "ap_northeast_2b_gateway"
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -529,7 +529,7 @@ resource "aws_nat_gateway" "ap_northeast_2b_gateway" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -541,7 +541,7 @@ resource "aws_subnet" "ap_northeast_2b_gateway" {
   availability_zone = "ap-northeast-2b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -555,7 +555,7 @@ resource "aws_route_table" "ap_northeast_2b_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -585,7 +585,7 @@ resource "aws_subnet" "ap_northeast_2b_compute" {
   availability_zone = "ap-northeast-2b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -599,7 +599,7 @@ resource "aws_route_table" "ap_northeast_2b_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -639,7 +639,7 @@ resource "aws_subnet" "ap_northeast_2b_storage" {
   availability_zone = "ap-northeast-2b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -653,7 +653,7 @@ resource "aws_route_table" "ap_northeast_2b_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -683,7 +683,7 @@ resource "aws_subnet" "ap_northeast_2b_connect" {
   availability_zone = "ap-northeast-2b"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -697,7 +697,7 @@ resource "aws_route_table" "ap_northeast_2b_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -733,7 +733,7 @@ resource "aws_network_acl" "ap_northeast_2b_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -767,7 +767,7 @@ resource "aws_eip" "ap_northeast_2c_gateway" {
   
   tags = {
     name = "ap_northeast_2c_gateway"
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -785,7 +785,7 @@ resource "aws_nat_gateway" "ap_northeast_2c_gateway" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -797,7 +797,7 @@ resource "aws_subnet" "ap_northeast_2c_gateway" {
   availability_zone = "ap-northeast-2c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -811,7 +811,7 @@ resource "aws_route_table" "ap_northeast_2c_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -841,7 +841,7 @@ resource "aws_subnet" "ap_northeast_2c_compute" {
   availability_zone = "ap-northeast-2c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -855,7 +855,7 @@ resource "aws_route_table" "ap_northeast_2c_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -895,7 +895,7 @@ resource "aws_subnet" "ap_northeast_2c_storage" {
   availability_zone = "ap-northeast-2c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -909,7 +909,7 @@ resource "aws_route_table" "ap_northeast_2c_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -939,7 +939,7 @@ resource "aws_subnet" "ap_northeast_2c_connect" {
   availability_zone = "ap-northeast-2c"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -953,7 +953,7 @@ resource "aws_route_table" "ap_northeast_2c_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -989,7 +989,7 @@ resource "aws_network_acl" "ap_northeast_2c_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1023,7 +1023,7 @@ resource "aws_eip" "ap_northeast_2d_gateway" {
   
   tags = {
     name = "ap_northeast_2d_gateway"
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1041,7 +1041,7 @@ resource "aws_nat_gateway" "ap_northeast_2d_gateway" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
-    env = "front"
+    env = "production"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
@@ -1053,7 +1053,7 @@ resource "aws_subnet" "ap_northeast_2d_gateway" {
   availability_zone = "ap-northeast-2d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1067,7 +1067,7 @@ resource "aws_route_table" "ap_northeast_2d_gateway" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1097,7 +1097,7 @@ resource "aws_subnet" "ap_northeast_2d_compute" {
   availability_zone = "ap-northeast-2d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1111,7 +1111,7 @@ resource "aws_route_table" "ap_northeast_2d_compute" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1151,7 +1151,7 @@ resource "aws_subnet" "ap_northeast_2d_storage" {
   availability_zone = "ap-northeast-2d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1165,7 +1165,7 @@ resource "aws_route_table" "ap_northeast_2d_storage" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1195,7 +1195,7 @@ resource "aws_subnet" "ap_northeast_2d_connect" {
   availability_zone = "ap-northeast-2d"
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1209,7 +1209,7 @@ resource "aws_route_table" "ap_northeast_2d_connect" {
   vpc_id = aws_vpc.vpc.id
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"
@@ -1245,7 +1245,7 @@ resource "aws_network_acl" "ap_northeast_2d_gateway" {
   ]
   
   tags = {
-    env = "front"
+    env = "production"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
     region = "ap-northeast-2"

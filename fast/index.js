@@ -1,5 +1,5 @@
 
-const moment = require('moment')
+const Moment = require('moment')
 const fs = require('fs')
 const tierra = require('@lancejpollard/tierra.js')
 
@@ -328,9 +328,10 @@ module.exports = createCloud
 
 function createCloud({
   author,
-  domain
+  domain,
+  moment
 }) {
-  const planned = moment().format()
+  const planned = moment || Moment().format()
   let t = tierra()
   t.terraform({
     blob: {
@@ -352,7 +353,7 @@ function createCloud({
   })
 
   createEnvironment({
-    env: 'check',
+    env: 'staging',
     cidrOffset: 0,
     t,
     domain,
@@ -360,7 +361,7 @@ function createCloud({
     planned
   })
   createEnvironment({
-    env: 'front',
+    env: 'production',
     cidrOffset: 64,
     t,
     domain,

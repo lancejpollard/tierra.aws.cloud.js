@@ -11,12 +11,12 @@ provider "aws" {
   region = "us-west-1"
 }
 
-module "check" {
-  environment = "check"
-  source = "./check"
+module "staging" {
+  environment = "staging"
+  source = "./staging"
 }
 
-module "front" {
-  environment = "front"
-  source = "./front"
+module "production" {
+  environment = "production"
+  source = "./production"
 }

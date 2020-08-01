@@ -1,7 +1,7 @@
 
 variable "environment" {
   type = string
-  default = "check"
+  default = "staging"
 }
 
 resource "aws_route53_zone" "domain" {
@@ -10,7 +10,7 @@ resource "aws_route53_zone" "domain" {
   tags = {
     name = "world"
     build_version = "1.0.2"
-    env = "check"
+    env = "staging"
     author = "Lance Pollard"
     planned = "2020-07-31T22:25:32-07:00"
   }
