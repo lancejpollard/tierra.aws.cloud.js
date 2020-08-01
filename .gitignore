@@ -1,2 +1,4 @@
 .terraform/
 tfplan
+tmp
+.terraform.tfstate.lock.info

@@ -326,13 +326,58 @@ const config = {
 
 module.exports = createCloud
 
+function normalizeRegion(region) {
+  if (!Array.isArray(region)) {
+    region = [region]
+  }
+
+  region.forEach((x, i) => {
+    if (typeof x === 'string') {
+      region[i] = {
+        name: x,
+        zone: []
+      }
+    } else {
+      x.zone = x.zone || []
+    }
+  })
+
+  return region
+}
+
 function createCloud({
   author,
   domain,
-  moment
+  moment,
+  region,
+  device,
+  system,
+  server,
+  bucket,
+  caller,
+  design
 }) {
-  const planned = moment || Moment().format()
+  moment = moment || Moment().format()
+  region = normalizeRegion(region, device, system)
+
+  let goal = {
+    region,
+    device,
+    system,
+    server,
+    bucket,
+    caller,
+    domain
+  }
+
+  let defaultTags = {
+    author,
+    moment,
+    design
+  }
+
   let t = tierra()
+
   t.terraform({
     blob: {
       required_version: '>= 0.12',
@@ -357,16 +402,16 @@ function createCloud({
     cidrOffset: 0,
     t,
     domain,
-    author,
-    planned
+    defaultTags,
+    goal
   })
   createEnvironment({
     env: 'production',
     cidrOffset: 64,
     t,
     domain,
-    author,
-    planned
+    defaultTags,
+    goal
   })
 
   t.forEach(blob => {
@@ -406,11 +451,11 @@ function createEnvironment({
   env,
   cidrOffset,
   t,
-  author,
-  domain,
-  planned
+  defaultTags,
+  goal
 }) {
   let m = createEnvironmentModule(env, t)
+  let { domain } = goal
 
   m.variable({
     name: 'environment',
@@ -421,20 +466,15 @@ function createEnvironment({
   })
 
   let tags = {
-    name: 'world',
-    build_version: buildVersion,
     env,
-    author,
-    planned
+    ...defaultTags
   }
 
   createRoute53Zone({
     name: `domain`,
     domain,
     tags,
-    m,
-    author,
-    planned
+    m
   })
 
   createRoute53Record({
@@ -450,9 +490,7 @@ function createEnvironment({
     ],
     type: 'NS',
     ttl: 30,
-    m,
-    author,
-    planned
+    m
   })
 
   m.resource({
@@ -462,7 +500,10 @@ function createEnvironment({
       name: 'world',
       ip_address_type: 'IPV4',
       enabled: true,
-      tags
+      tags: {
+        type: 'map',
+        blob: tags
+      }
     }
   })
 
@@ -531,9 +572,8 @@ function createEnvironment({
       zones: config[region].zones,
       cidr: config[region].cidr + cidrOffset,
       m2,
-      author,
-      domain,
-      planned
+      goal,
+      defaultTags
     })
   })
 }
@@ -547,7 +587,7 @@ function createSecurityGroup({
   m2,
   author,
   domain,
-  planned
+  moment
 }) {
   let blob = {}
   let r = {
@@ -604,9 +644,8 @@ function createRegion(env, region, {
   zones,
   cidr,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   var regionConfig = config[region]
   var regionCode = regionConfig.region
@@ -626,9 +665,7 @@ function createRegion(env, region, {
     name: vpcName,
     env,
     region: regionCode,
-    author,
-    build_version: buildVersion,
-    planned
+    ...defaultTags
   }
 
   m2.resource({
@@ -682,19 +719,17 @@ function createRegion(env, region, {
     protocol: 'HTTP',
     vpcId,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createACMCertificate({
     name: `${region}_gateway`,
-    domain,
+    domain: goal.domain,
     tags: { ...tags, name: `${region}_gateway` },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createLoadBalancerListener({
@@ -706,9 +741,8 @@ function createRegion(env, region, {
     certificateArn: `aws_acm_certificate.${region}_gateway.arn`,
     targetGroupArn: `aws_lb_target_group.${region}_gateway.arn`,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createInternetGateway({
@@ -716,9 +750,8 @@ function createRegion(env, region, {
     vpcId,
     tags: { ...tags, name: `ig` },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   let cidrBlockConfig = {
@@ -771,9 +804,8 @@ function createRegion(env, region, {
     group: securityGroups.gateway,
     tags: { ...tags, name: 'gateway' },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createSecurityGroup({
@@ -783,9 +815,8 @@ function createRegion(env, region, {
     group: securityGroups.compute,
     tags: { ...tags, name: 'compute' },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createSecurityGroup({
@@ -795,9 +826,8 @@ function createRegion(env, region, {
     group: securityGroups.connect,
     tags: { ...tags, name: 'connect' },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createSecurityGroup({
@@ -807,9 +837,8 @@ function createRegion(env, region, {
     group: securityGroups.storage,
     tags: { ...tags, name: 'storage' },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   zones.forEach((zone, i) => {
@@ -823,9 +852,8 @@ function createRegion(env, region, {
       cidr: i * 3,
       cidrBlock: `10.${cidr}.{zone}.0/21`,
       m2,
-      author,
-      domain,
-      planned
+      goal,
+      defaultTags
     })
   })
 
@@ -848,7 +876,7 @@ function createInternetGateway({
   m2,
   author,
   domain,
-  planned
+  moment
 }) {
   m2.resource({
     type: 'aws_internet_gateway',
@@ -875,9 +903,8 @@ function createZone({
   cidrBlock,
   vpcId,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   var gatewayName = [zone, 'gateway'].join('_').replace(/-/g, '_')
   var computeName = [zone, 'compute'].join('_').replace(/-/g, '_')
@@ -900,29 +927,19 @@ function createZone({
   var tags = {
     env,
     zone,
-    author,
     region: regionCode,
     name: gatewayName,
-    build_version: buildVersion,
-    planned
+    ...defaultTags
   }
 
   createNATGateway({
     name: gatewayName,
     subnetId,
     allocationId: `aws_eip.${gatewayName}.id`,
-    tags: {
-      region: regionCode,
-      zone,
-      author,
-      env,
-      build_version: buildVersion,
-      planned
-    },
+    tags,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createInstance({
@@ -930,9 +947,8 @@ function createZone({
     networkInterfaceId: `aws_network_interface.${gatewayName}.id`,
     tags,
     m2,
-    author,
-    domain,
-    planned,
+    goal,
+    defaultTags,
     zone,
     subnetId,
     securityGroupIds: [
@@ -956,9 +972,8 @@ function createZone({
     networkInterfaceId: `aws_network_interface.${zone.replace(/-/g, '_')}_database.id`,
     tags,
     m2,
-    author,
-    domain,
-    planned,
+    goal,
+    defaultTags,
     zone,
     subnetId,
     securityGroupIds: [
@@ -977,8 +992,7 @@ function createZone({
         blob: {
           region: regionCode,
           zone,
-          author,
-          planned
+          ...defaultTags
         }
       }
     }
@@ -1013,9 +1027,8 @@ function createZone({
     subnetId,
     tags,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags,
   })
 
   createSubnet({
@@ -1034,9 +1047,8 @@ function createZone({
       name: computeName
     },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags,
   })
 
   createSubnet({
@@ -1055,9 +1067,8 @@ function createZone({
       name: storageName
     },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createSubnet({
@@ -1076,9 +1087,8 @@ function createZone({
       name: connectName
     },
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   Object.keys(networkACLS).forEach(name => {
@@ -1093,9 +1103,8 @@ function createZone({
         name: key
       },
       m2,
-      author,
-      domain,
-      planned
+      goal,
+      defaultTags
     })
   })
 }
@@ -1112,9 +1121,8 @@ function createSubnet({
   array,
   tags = {},
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_subnet',
@@ -1141,9 +1149,8 @@ function createSubnet({
     vpcId,
     subnetId,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createNetworkInterface({
@@ -1152,15 +1159,13 @@ function createSubnet({
     securityGroups,
     tags,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   createAutoscalingGroup({
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 }
 
@@ -1171,9 +1176,8 @@ function createNATGateway({
   tags = {},
   array,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   tags = {
     name,
@@ -1200,23 +1204,14 @@ function createNATGateway({
   })
 }
 
-function createTags(tags) {
-  var text = []
-  Object.keys(tags).sort().forEach(key => {
-    text.push(`    ${key} = "${tags[key]}`)
-  })
-  return text.join('\n')
-}
-
 function createEIP({
   name,
   networkInterfaceId,
   array,
   tags = {},
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   tags = { name, ...tags }
   m2.resource({
@@ -1243,9 +1238,8 @@ function createNetworkInterface({
   array,
   tags = {},
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   tags = {
     name,
@@ -1267,23 +1261,23 @@ function createInstance({
   name,
   networkInterfaceId,
   tags,
-  array,
   m2,
   author,
   domain,
-  planned,
+  moment,
   zone,
   subnetId,
-  securityGroupIds = []
+  securityGroupIds = [],
+  goal,
+  defaultTags
 }) {
   createEIP({
     name,
     networkInterfaceId,
     tags,
     m2,
-    author,
-    domain,
-    planned
+    goal,
+    defaultTags
   })
 
   m2.resource({
@@ -1302,6 +1296,10 @@ function createInstance({
       subnet_id: {
         type: 'key',
         blob: subnetId
+      },
+      tags: {
+        type: 'map',
+        blob: tags
       }
     }
   })
@@ -1310,23 +1308,21 @@ function createInstance({
 function createAutoscalingGroup({
   author,
   domain,
-  planned
+  moment
 }) {
 
 }
 
 function createNetworkACL({
   name,
-  array,
   config,
   subnetIds,
   cidrBlocks = {},
   vpcId,
   tags,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   let blob = {
     vpc_id: {
@@ -1383,7 +1379,6 @@ function createNetworkACL({
 }
 
 function createRouteTable({
-  array,
   type,
   name,
   subnetId,
@@ -1391,9 +1386,8 @@ function createRouteTable({
   vpcId,
   tags = {},
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_route_table',
@@ -1428,7 +1422,6 @@ function createRouteTable({
   Object.keys(routes[type]).forEach(key => {
     createRoute({
       name: `${name}_${key}`,
-      array,
       routeTableId: `aws_route_table.${name}.id`,
       cidrBlock: cidrBlockConfig[routes[type][key]] || routes[type][key],
       tags: {
@@ -1437,23 +1430,20 @@ function createRouteTable({
         name: `${name}_${key}`
       },
       m2,
-      author,
-      domain,
-      planned
+      goal,
+      defaultTags
     })
   })
 }
 
 function createRoute({
   name,
-  array,
   routeTableId,
   cidrBlock,
   tags = {},
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_route',
@@ -1470,7 +1460,6 @@ function createRoute({
 
 function createLoadBalancerListener({
   name,
-  array,
   lbArn,
   tags,
   protocol,
@@ -1478,9 +1467,8 @@ function createLoadBalancerListener({
   certificateArn,
   targetGroupArn,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_lb_listener',
@@ -1517,13 +1505,11 @@ function createLoadBalancerTargetGroup({
   name,
   port,
   tags,
-  array,
   vpcId,
   protocol,
   m2,
-  author,
-  domain,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_lb_target_group',
@@ -1547,10 +1533,9 @@ function createACMCertificate({
   name,
   domain,
   tags,
-  array,
   m2,
-  author,
-  planned
+  goal,
+  defaultTags
 }) {
   m2.resource({
     type: 'aws_acm_certificate',
@@ -1579,8 +1564,8 @@ function createRoute53Zone({
   domain,
   tags,
   m,
-  author,
-  planned
+  goal,
+  defaultTags
 }) {
   m.resource({
     type: 'aws_route53_zone',
@@ -1604,8 +1589,8 @@ function createRoute53Record({
   type,
   ttl,
   m,
-  author,
-  planned
+  goal,
+  defaultTags
 }) {
   m.resource({
     type: 'aws_route53_record',

@@ -1,0 +1,1676 @@
+[
+  {
+    "cpu": 4,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "c5d.xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5dn.xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5.metal"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5a.2xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5n.12xlarge"
+  },
+  {
+    "cpu": 36,
+    "memory": 72,
+    "arch": "x86_64",
+    "instance": "c5.9xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5ad.xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5.24xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5n.xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "i3en.12xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "i3en.metal"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5d.12xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "c5.large"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5dn.xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 5.25,
+    "arch": "x86_64",
+    "instance": "c5n.large"
+  },
+  {
+    "cpu": 96,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5.24xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "i2.xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m5n.16xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 1,
+    "arch": "x86_64",
+    "instance": "t2.micro"
+  },
+  {
+    "cpu": 36,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "d2.8xlarge"
+  },
+  {
+    "cpu": 12,
+    "memory": 96,
+    "arch": "x86_64",
+    "instance": "i3en.3xlarge"
+  },
+  {
+    "cpu": 12,
+    "memory": 96,
+    "arch": "x86_64",
+    "instance": "z1d.3xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "inf1.xlarge"
+  },
+  {
+    "cpu": 72,
+    "memory": 144,
+    "arch": "x86_64",
+    "instance": "c5.18xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 1952,
+    "arch": "x86_64",
+    "instance": "x1e.16xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5n.24xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "i2.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "r5a.8xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "a1.metal"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "i2.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "i3en.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5a.xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "p3.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "t2.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "h1.8xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5d.24xlarge"
+  },
+  {
+    "cpu": 24,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "i3en.6xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "r4.8xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "t2.large"
+  },
+  {
+    "cpu": 64,
+    "memory": 976,
+    "arch": "x86_64",
+    "instance": "x1.16xlarge"
+  },
+  {
+    "cpu": 72,
+    "memory": 144,
+    "arch": "x86_64",
+    "instance": "c5d.18xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m5a.16xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5.metal"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5a.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 3.75,
+    "arch": "x86_64",
+    "instance": "c3.large"
+  },
+  {
+    "cpu": 96,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "inf1.24xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5a.24xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "g3.16xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "a1.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 7.5,
+    "arch": "x86_64",
+    "instance": "c4.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "x1e.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5ad.xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "i3en.24xlarge"
+  },
+  {
+    "cpu": 72,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5n.18xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m4.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "t3.medium"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "h1.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "x1e.xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "g4dn.8xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5n.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "c5.4xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5d.24xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 15.25,
+    "arch": "x86_64",
+    "instance": "r3.large"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5n.2xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 3.75,
+    "arch": "x86_64",
+    "instance": "c4.large"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5d.xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5d.large"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 30,
+    "arch": "x86_64",
+    "instance": "m3.2xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5n.12xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5d.2xlarge"
+  },
+  {
+    "cpu": 40,
+    "memory": 160,
+    "arch": "x86_64",
+    "instance": "m4.10xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5ad.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "c5d.large"
+  },
+  {
+    "cpu": 32,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "r5dn.8xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m6g.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5d.24xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "r5n.16xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5d.metal"
+  },
+  {
+    "cpu": 128,
+    "memory": 1952,
+    "arch": "x86_64",
+    "instance": "x1.32xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 21,
+    "arch": "x86_64",
+    "instance": "c5n.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "r5n.8xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5d.xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5.metal"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5dn.large"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5.12xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "p3.16xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 7.5,
+    "arch": "x86_64",
+    "instance": "m3.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "c5d.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5n.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5.24xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5dn.12xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "r5dn.16xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 15.25,
+    "arch": "x86_64",
+    "instance": "r4.large"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "r3.xlarge"
+  },
+  {
+    "cpu": 128,
+    "memory": 3904,
+    "arch": "x86_64",
+    "instance": "x1e.32xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 10.5,
+    "arch": "x86_64",
+    "instance": "c5n.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5a.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5ad.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "t2.xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "p3dn.24xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 732,
+    "arch": "x86_64",
+    "instance": "p2.16xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m5dn.16xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 60,
+    "arch": "x86_64",
+    "instance": "c3.8xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 3.75,
+    "arch": "x86_64",
+    "instance": "m3.medium"
+  },
+  {
+    "cpu": 8,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "x1e.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5dn.24xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m5a.8xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5ad.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5a.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5d.metal"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5a.12xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 2,
+    "arch": "x86_64",
+    "instance": "t2.small"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m5d.16xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "d2.xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "c5.2xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "g4dn.16xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "m6g.medium"
+  },
+  {
+    "cpu": 4,
+    "memory": 15,
+    "arch": "x86_64",
+    "instance": "m1.xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5n.xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m6g.16xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "c5d.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 15,
+    "arch": "x86_64",
+    "instance": "m3.xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 3.75,
+    "arch": "x86_64",
+    "instance": "m1.medium"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "t3a.medium"
+  },
+  {
+    "cpu": 64,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "r4.16xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "i3.xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "z1d.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 7.5,
+    "arch": "x86_64",
+    "instance": "c3.xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "r5.8xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 15,
+    "arch": "x86_64",
+    "instance": "c3.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "r3.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "r4.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "p2.8xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m5.xlarge"
+  },
+  {
+    "cpu": 36,
+    "memory": 60,
+    "arch": "x86_64",
+    "instance": "c4.8xlarge"
+  },
+  {
+    "cpu": 36,
+    "memory": 96,
+    "arch": "x86_64",
+    "instance": "c5n.9xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "d2.2xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "d2.4xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5ad.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "c5.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5dn.4xlarge"
+  },
+  {
+    "cpu": 24,
+    "memory": 48,
+    "arch": "x86_64",
+    "instance": "inf1.6xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5d.4xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "r5.16xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5n.24xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m4.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5a.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "t3.xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "z1d.12xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m4.16xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5.12xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m4.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "r4.xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 1.7,
+    "arch": "x86_64",
+    "instance": "m1.small"
+  },
+  {
+    "cpu": 4,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "a1.xlarge"
+  },
+  {
+    "cpu": 24,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "z1d.6xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5d.4xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5dn.metal"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "r5a.16xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5n.large"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m5dn.8xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "p2.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 30,
+    "arch": "x86_64",
+    "instance": "c3.4xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "r4.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5a.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5n.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "h1.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5ad.24xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m6g.metal"
+  },
+  {
+    "cpu": 16,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "f1.4xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "i3en.xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5a.12xlarge"
+  },
+  {
+    "cpu": 448,
+    "memory": 12288,
+    "arch": "x86_64",
+    "instance": "u-12tb1.metal"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5ad.24xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5d.metal"
+  },
+  {
+    "cpu": 8,
+    "memory": 15,
+    "arch": "x86_64",
+    "instance": "g2.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 15,
+    "arch": "x86_64",
+    "instance": "c4.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 976,
+    "arch": "x86_64",
+    "instance": "x1e.8xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5dn.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m5.4xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5dn.12xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5n.4xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "h1.16xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "z1d.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5dn.4xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 96,
+    "arch": "x86_64",
+    "instance": "c5d.12xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "r5d.8xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "t3.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "g3.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m5d.8xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "i3.metal"
+  },
+  {
+    "cpu": 64,
+    "memory": 256,
+    "arch": "x86_64",
+    "instance": "m5.16xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m4.2xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "z1d.metal"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "g4dn.12xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5ad.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5d.2xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 15.25,
+    "arch": "x86_64",
+    "instance": "i3.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "z1d.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "m6g.4xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 488,
+    "arch": "x86_64",
+    "instance": "i3.16xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m5ad.12xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "i3en.large"
+  },
+  {
+    "cpu": 72,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "c5n.metal"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "i2.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "m5dn.2xlarge"
+  },
+  {
+    "cpu": 36,
+    "memory": 72,
+    "arch": "x86_64",
+    "instance": "c5d.9xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "r5.xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 61,
+    "arch": "x86_64",
+    "instance": "i3.2xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "g4dn.xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "r5d.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "g3.4xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5dn.24xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5d.12xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "r5dn.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 60,
+    "arch": "x86_64",
+    "instance": "g2.8xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "i3.4xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 64,
+    "arch": "x86_64",
+    "instance": "g4dn.4xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 96,
+    "arch": "x86_64",
+    "instance": "c5.12xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 42,
+    "arch": "x86_64",
+    "instance": "c5n.4xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 2,
+    "arch": "x86_64",
+    "instance": "t3a.small"
+  },
+  {
+    "cpu": 16,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "r3.4xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 7.5,
+    "arch": "x86_64",
+    "instance": "m1.large"
+  },
+  {
+    "cpu": 8,
+    "memory": 68.4,
+    "arch": "x86_64",
+    "instance": "m2.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "inf1.2xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "r3.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "p3.8xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 17.1,
+    "arch": "x86_64",
+    "instance": "m2.xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 1.7,
+    "arch": "x86_64",
+    "instance": "c1.medium"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m6g.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 60.5,
+    "arch": "x86_64",
+    "instance": "cc2.8xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "t3a.2xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 7,
+    "arch": "x86_64",
+    "instance": "c1.xlarge"
+  },
+  {
+    "cpu": 64,
+    "memory": 512,
+    "arch": "x86_64",
+    "instance": "r5d.16xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m5.8xlarge"
+  },
+  {
+    "cpu": 4,
+    "memory": 34.2,
+    "arch": "x86_64",
+    "instance": "m2.2xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "r5ad.4xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 0.5,
+    "arch": "x86_64",
+    "instance": "t3a.nano"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5n.metal"
+  },
+  {
+    "cpu": 48,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "r5ad.12xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m5a.large"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "i3.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 244,
+    "arch": "x86_64",
+    "instance": "cr1.8xlarge"
+  },
+  {
+    "cpu": 32,
+    "memory": 128,
+    "arch": "x86_64",
+    "instance": "m5n.8xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "m5a.24xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 0.5,
+    "arch": "x86_64",
+    "instance": "t3.nano"
+  },
+  {
+    "cpu": 8,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "g4dn.2xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 384,
+    "arch": "x86_64",
+    "instance": "g4dn.metal"
+  },
+  {
+    "cpu": 16,
+    "memory": 30,
+    "arch": "x86_64",
+    "instance": "c4.4xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 1,
+    "arch": "x86_64",
+    "instance": "t3.micro"
+  },
+  {
+    "cpu": 448,
+    "memory": 6144,
+    "arch": "x86_64",
+    "instance": "u-6tb1.metal"
+  },
+  {
+    "cpu": 2,
+    "memory": 2,
+    "arch": "x86_64",
+    "instance": "t3.small"
+  },
+  {
+    "cpu": 64,
+    "memory": 976,
+    "arch": "x86_64",
+    "instance": "f1.16xlarge"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "t3.large"
+  },
+  {
+    "cpu": 2,
+    "memory": 1,
+    "arch": "x86_64",
+    "instance": "t3a.micro"
+  },
+  {
+    "cpu": 448,
+    "memory": 9216,
+    "arch": "x86_64",
+    "instance": "u-9tb1.metal"
+  },
+  {
+    "cpu": 4,
+    "memory": 30.5,
+    "arch": "x86_64",
+    "instance": "g3s.xlarge"
+  },
+  {
+    "cpu": 16,
+    "memory": 32,
+    "arch": "x86_64",
+    "instance": "a1.4xlarge"
+  },
+  {
+    "cpu": 8,
+    "memory": 122,
+    "arch": "x86_64",
+    "instance": "f1.2xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 2,
+    "arch": "x86_64",
+    "instance": "a1.medium"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "t2.medium"
+  },
+  {
+    "cpu": 2,
+    "memory": 4,
+    "arch": "x86_64",
+    "instance": "a1.large"
+  },
+  {
+    "cpu": 16,
+    "memory": 117,
+    "arch": "x86_64",
+    "instance": "hs1.8xlarge"
+  },
+  {
+    "cpu": 448,
+    "memory": 18432,
+    "arch": "x86_64",
+    "instance": "u-18tb1.metal"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "t3a.xlarge"
+  },
+  {
+    "cpu": 1,
+    "memory": 0.613,
+    "arch": "x86_64",
+    "instance": "t1.micro"
+  },
+  {
+    "cpu": 4,
+    "memory": 16,
+    "arch": "x86_64",
+    "instance": "m6g.xlarge"
+  },
+  {
+    "cpu": 48,
+    "memory": 192,
+    "arch": "x86_64",
+    "instance": "m6g.12xlarge"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5dn.metal"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "m6g.large"
+  },
+  {
+    "cpu": 96,
+    "memory": 768,
+    "arch": "x86_64",
+    "instance": "r5n.metal"
+  },
+  {
+    "cpu": 448,
+    "memory": 24576,
+    "arch": "x86_64",
+    "instance": "u-24tb1.metal"
+  },
+  {
+    "cpu": 1,
+    "memory": 0.5,
+    "arch": "x86_64",
+    "instance": "t2.nano"
+  },
+  {
+    "cpu": 2,
+    "memory": 8,
+    "arch": "x86_64",
+    "instance": "t3a.large"
+  }
+]

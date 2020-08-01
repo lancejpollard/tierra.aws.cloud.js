@@ -8,11 +8,9 @@ resource "aws_route53_zone" "domain" {
   name = "domain"
   
   tags = {
-    name = "world"
-    build_version = "1.0.2"
     env = "production"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -33,6 +31,12 @@ resource "aws_globalaccelerator_accelerator" "world" {
   name = "world"
   ip_address_type = "IPV4"
   enabled = true
+  
+  tags = {
+    env = "production"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_globalaccelerator_listener" "insecure_world" {

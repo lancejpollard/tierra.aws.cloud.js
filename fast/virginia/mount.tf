@@ -11,8 +11,7 @@ resource "aws_vpc" "vpc" {
     env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -38,8 +37,7 @@ resource "aws_lb" "lb" {
     env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -53,8 +51,7 @@ resource "aws_lb_target_group" "virginia_gateway" {
     env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -71,8 +68,7 @@ resource "aws_acm_certificate" "virginia_gateway" {
     env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -97,8 +93,7 @@ resource "aws_internet_gateway" "ig" {
     env = "production"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -257,12 +252,11 @@ resource "aws_nat_gateway" "us_east_1a_gateway" {
   
   tags = {
     name = "us_east_1a_gateway"
-    region = "us-east-1"
-    zone = "us-east-1a"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1a"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -274,10 +268,9 @@ resource "aws_eip" "us_east_1a_gateway" {
     name = "us_east_1a_gateway"
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -289,6 +282,15 @@ resource "aws_instance" "us_east_1a_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1a_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1a"
+    region = "us-east-1"
+    name = "us_east_1a_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1a_database" {
@@ -303,10 +305,9 @@ resource "aws_eip" "us_east_1a_database" {
     name = "us_east_1a_gateway"
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -318,6 +319,15 @@ resource "aws_instance" "us_east_1a_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1a_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1a"
+    region = "us-east-1"
+    name = "us_east_1a_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1a_database" {
@@ -328,7 +338,7 @@ resource "aws_ebs_volume" "us_east_1a_database" {
     region = "us-east-1"
     zone = "us-east-1a"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -346,11 +356,10 @@ resource "aws_subnet" "us_east_1a_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -360,11 +369,10 @@ resource "aws_route_table" "us_east_1a_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -390,11 +398,10 @@ resource "aws_subnet" "us_east_1a_compute" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -404,11 +411,10 @@ resource "aws_route_table" "us_east_1a_compute" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -444,11 +450,10 @@ resource "aws_subnet" "us_east_1a_storage" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -458,11 +463,10 @@ resource "aws_route_table" "us_east_1a_storage" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -488,11 +492,10 @@ resource "aws_subnet" "us_east_1a_connect" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -502,11 +505,10 @@ resource "aws_route_table" "us_east_1a_connect" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -538,11 +540,10 @@ resource "aws_network_acl" "us_east_1a_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1a"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -570,12 +571,11 @@ resource "aws_nat_gateway" "us_east_1b_gateway" {
   
   tags = {
     name = "us_east_1b_gateway"
-    region = "us-east-1"
-    zone = "us-east-1b"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1b"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -587,10 +587,9 @@ resource "aws_eip" "us_east_1b_gateway" {
     name = "us_east_1b_gateway"
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -602,6 +601,15 @@ resource "aws_instance" "us_east_1b_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1b_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1b"
+    region = "us-east-1"
+    name = "us_east_1b_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1b_database" {
@@ -616,10 +624,9 @@ resource "aws_eip" "us_east_1b_database" {
     name = "us_east_1b_gateway"
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -631,6 +638,15 @@ resource "aws_instance" "us_east_1b_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1b_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1b"
+    region = "us-east-1"
+    name = "us_east_1b_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1b_database" {
@@ -641,7 +657,7 @@ resource "aws_ebs_volume" "us_east_1b_database" {
     region = "us-east-1"
     zone = "us-east-1b"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -659,11 +675,10 @@ resource "aws_subnet" "us_east_1b_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -673,11 +688,10 @@ resource "aws_route_table" "us_east_1b_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -703,11 +717,10 @@ resource "aws_subnet" "us_east_1b_compute" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -717,11 +730,10 @@ resource "aws_route_table" "us_east_1b_compute" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -757,11 +769,10 @@ resource "aws_subnet" "us_east_1b_storage" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -771,11 +782,10 @@ resource "aws_route_table" "us_east_1b_storage" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -801,11 +811,10 @@ resource "aws_subnet" "us_east_1b_connect" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -815,11 +824,10 @@ resource "aws_route_table" "us_east_1b_connect" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -851,11 +859,10 @@ resource "aws_network_acl" "us_east_1b_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1b"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -883,12 +890,11 @@ resource "aws_nat_gateway" "us_east_1c_gateway" {
   
   tags = {
     name = "us_east_1c_gateway"
-    region = "us-east-1"
-    zone = "us-east-1c"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1c"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -900,10 +906,9 @@ resource "aws_eip" "us_east_1c_gateway" {
     name = "us_east_1c_gateway"
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -915,6 +920,15 @@ resource "aws_instance" "us_east_1c_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1c_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1c"
+    region = "us-east-1"
+    name = "us_east_1c_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1c_database" {
@@ -929,10 +943,9 @@ resource "aws_eip" "us_east_1c_database" {
     name = "us_east_1c_gateway"
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -944,6 +957,15 @@ resource "aws_instance" "us_east_1c_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1c_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1c"
+    region = "us-east-1"
+    name = "us_east_1c_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1c_database" {
@@ -954,7 +976,7 @@ resource "aws_ebs_volume" "us_east_1c_database" {
     region = "us-east-1"
     zone = "us-east-1c"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -972,11 +994,10 @@ resource "aws_subnet" "us_east_1c_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -986,11 +1007,10 @@ resource "aws_route_table" "us_east_1c_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1016,11 +1036,10 @@ resource "aws_subnet" "us_east_1c_compute" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1030,11 +1049,10 @@ resource "aws_route_table" "us_east_1c_compute" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1070,11 +1088,10 @@ resource "aws_subnet" "us_east_1c_storage" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1084,11 +1101,10 @@ resource "aws_route_table" "us_east_1c_storage" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1114,11 +1130,10 @@ resource "aws_subnet" "us_east_1c_connect" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1128,11 +1143,10 @@ resource "aws_route_table" "us_east_1c_connect" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1164,11 +1178,10 @@ resource "aws_network_acl" "us_east_1c_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1c"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -1196,12 +1209,11 @@ resource "aws_nat_gateway" "us_east_1d_gateway" {
   
   tags = {
     name = "us_east_1d_gateway"
-    region = "us-east-1"
-    zone = "us-east-1d"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1d"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1213,10 +1225,9 @@ resource "aws_eip" "us_east_1d_gateway" {
     name = "us_east_1d_gateway"
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1228,6 +1239,15 @@ resource "aws_instance" "us_east_1d_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1d_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1d"
+    region = "us-east-1"
+    name = "us_east_1d_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1d_database" {
@@ -1242,10 +1262,9 @@ resource "aws_eip" "us_east_1d_database" {
     name = "us_east_1d_gateway"
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1257,6 +1276,15 @@ resource "aws_instance" "us_east_1d_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1d_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1d"
+    region = "us-east-1"
+    name = "us_east_1d_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1d_database" {
@@ -1267,7 +1295,7 @@ resource "aws_ebs_volume" "us_east_1d_database" {
     region = "us-east-1"
     zone = "us-east-1d"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1285,11 +1313,10 @@ resource "aws_subnet" "us_east_1d_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1299,11 +1326,10 @@ resource "aws_route_table" "us_east_1d_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1329,11 +1355,10 @@ resource "aws_subnet" "us_east_1d_compute" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1343,11 +1368,10 @@ resource "aws_route_table" "us_east_1d_compute" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1383,11 +1407,10 @@ resource "aws_subnet" "us_east_1d_storage" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1397,11 +1420,10 @@ resource "aws_route_table" "us_east_1d_storage" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1427,11 +1449,10 @@ resource "aws_subnet" "us_east_1d_connect" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1441,11 +1462,10 @@ resource "aws_route_table" "us_east_1d_connect" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1477,11 +1497,10 @@ resource "aws_network_acl" "us_east_1d_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1d"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -1509,12 +1528,11 @@ resource "aws_nat_gateway" "us_east_1e_gateway" {
   
   tags = {
     name = "us_east_1e_gateway"
-    region = "us-east-1"
-    zone = "us-east-1e"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1e"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1526,10 +1544,9 @@ resource "aws_eip" "us_east_1e_gateway" {
     name = "us_east_1e_gateway"
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1541,6 +1558,15 @@ resource "aws_instance" "us_east_1e_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1e_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1e"
+    region = "us-east-1"
+    name = "us_east_1e_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1e_database" {
@@ -1555,10 +1581,9 @@ resource "aws_eip" "us_east_1e_database" {
     name = "us_east_1e_gateway"
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1570,6 +1595,15 @@ resource "aws_instance" "us_east_1e_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1e_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1e"
+    region = "us-east-1"
+    name = "us_east_1e_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1e_database" {
@@ -1580,7 +1614,7 @@ resource "aws_ebs_volume" "us_east_1e_database" {
     region = "us-east-1"
     zone = "us-east-1e"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1598,11 +1632,10 @@ resource "aws_subnet" "us_east_1e_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1612,11 +1645,10 @@ resource "aws_route_table" "us_east_1e_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1642,11 +1674,10 @@ resource "aws_subnet" "us_east_1e_compute" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1656,11 +1687,10 @@ resource "aws_route_table" "us_east_1e_compute" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1696,11 +1726,10 @@ resource "aws_subnet" "us_east_1e_storage" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1710,11 +1739,10 @@ resource "aws_route_table" "us_east_1e_storage" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1740,11 +1768,10 @@ resource "aws_subnet" "us_east_1e_connect" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1754,11 +1781,10 @@ resource "aws_route_table" "us_east_1e_connect" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1790,11 +1816,10 @@ resource "aws_network_acl" "us_east_1e_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1e"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -1822,12 +1847,11 @@ resource "aws_nat_gateway" "us_east_1f_gateway" {
   
   tags = {
     name = "us_east_1f_gateway"
-    region = "us-east-1"
-    zone = "us-east-1f"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "us-east-1f"
+    region = "us-east-1"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1839,10 +1863,9 @@ resource "aws_eip" "us_east_1f_gateway" {
     name = "us_east_1f_gateway"
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1854,6 +1877,15 @@ resource "aws_instance" "us_east_1f_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.us_east_1f_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1f"
+    region = "us-east-1"
+    name = "us_east_1f_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "us_east_1f_database" {
@@ -1868,10 +1900,9 @@ resource "aws_eip" "us_east_1f_database" {
     name = "us_east_1f_gateway"
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1883,6 +1914,15 @@ resource "aws_instance" "us_east_1f_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.us_east_1f_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "us-east-1f"
+    region = "us-east-1"
+    name = "us_east_1f_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "us_east_1f_database" {
@@ -1893,7 +1933,7 @@ resource "aws_ebs_volume" "us_east_1f_database" {
     region = "us-east-1"
     zone = "us-east-1f"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1911,11 +1951,10 @@ resource "aws_subnet" "us_east_1f_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1925,11 +1964,10 @@ resource "aws_route_table" "us_east_1f_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1955,11 +1993,10 @@ resource "aws_subnet" "us_east_1f_compute" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1969,11 +2006,10 @@ resource "aws_route_table" "us_east_1f_compute" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -2009,11 +2045,10 @@ resource "aws_subnet" "us_east_1f_storage" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -2023,11 +2058,10 @@ resource "aws_route_table" "us_east_1f_storage" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -2053,11 +2087,10 @@ resource "aws_subnet" "us_east_1f_connect" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -2067,11 +2100,10 @@ resource "aws_route_table" "us_east_1f_connect" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -2103,11 +2135,10 @@ resource "aws_network_acl" "us_east_1f_gateway" {
   tags = {
     env = "production"
     zone = "us-east-1f"
-    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {

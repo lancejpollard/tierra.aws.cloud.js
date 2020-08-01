@@ -11,8 +11,7 @@ resource "aws_vpc" "vpc" {
     env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -36,8 +35,7 @@ resource "aws_lb" "lb" {
     env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -51,8 +49,7 @@ resource "aws_lb_target_group" "seoul_gateway" {
     env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -69,8 +66,7 @@ resource "aws_acm_certificate" "seoul_gateway" {
     env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -95,8 +91,7 @@ resource "aws_internet_gateway" "ig" {
     env = "production"
     region = "ap-northeast-2"
     author = "Lance Pollard"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -255,12 +250,11 @@ resource "aws_nat_gateway" "ap_northeast_2a_gateway" {
   
   tags = {
     name = "ap_northeast_2a_gateway"
-    region = "ap-northeast-2"
-    zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "ap-northeast-2a"
+    region = "ap-northeast-2"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -272,10 +266,9 @@ resource "aws_eip" "ap_northeast_2a_gateway" {
     name = "ap_northeast_2a_gateway"
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -287,6 +280,15 @@ resource "aws_instance" "ap_northeast_2a_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.ap_northeast_2a_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2a"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2a_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "ap_northeast_2a_database" {
@@ -301,10 +303,9 @@ resource "aws_eip" "ap_northeast_2a_database" {
     name = "ap_northeast_2a_gateway"
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -316,6 +317,15 @@ resource "aws_instance" "ap_northeast_2a_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.ap_northeast_2a_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2a"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2a_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "ap_northeast_2a_database" {
@@ -326,7 +336,7 @@ resource "aws_ebs_volume" "ap_northeast_2a_database" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2a"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -344,11 +354,10 @@ resource "aws_subnet" "ap_northeast_2a_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -358,11 +367,10 @@ resource "aws_route_table" "ap_northeast_2a_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -388,11 +396,10 @@ resource "aws_subnet" "ap_northeast_2a_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -402,11 +409,10 @@ resource "aws_route_table" "ap_northeast_2a_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -442,11 +448,10 @@ resource "aws_subnet" "ap_northeast_2a_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -456,11 +461,10 @@ resource "aws_route_table" "ap_northeast_2a_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -486,11 +490,10 @@ resource "aws_subnet" "ap_northeast_2a_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -500,11 +503,10 @@ resource "aws_route_table" "ap_northeast_2a_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -536,11 +538,10 @@ resource "aws_network_acl" "ap_northeast_2a_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2a"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2a_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -568,12 +569,11 @@ resource "aws_nat_gateway" "ap_northeast_2b_gateway" {
   
   tags = {
     name = "ap_northeast_2b_gateway"
-    region = "ap-northeast-2"
-    zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "ap-northeast-2b"
+    region = "ap-northeast-2"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -585,10 +585,9 @@ resource "aws_eip" "ap_northeast_2b_gateway" {
     name = "ap_northeast_2b_gateway"
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -600,6 +599,15 @@ resource "aws_instance" "ap_northeast_2b_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.ap_northeast_2b_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2b"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2b_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "ap_northeast_2b_database" {
@@ -614,10 +622,9 @@ resource "aws_eip" "ap_northeast_2b_database" {
     name = "ap_northeast_2b_gateway"
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -629,6 +636,15 @@ resource "aws_instance" "ap_northeast_2b_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.ap_northeast_2b_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2b"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2b_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "ap_northeast_2b_database" {
@@ -639,7 +655,7 @@ resource "aws_ebs_volume" "ap_northeast_2b_database" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2b"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -657,11 +673,10 @@ resource "aws_subnet" "ap_northeast_2b_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -671,11 +686,10 @@ resource "aws_route_table" "ap_northeast_2b_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -701,11 +715,10 @@ resource "aws_subnet" "ap_northeast_2b_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -715,11 +728,10 @@ resource "aws_route_table" "ap_northeast_2b_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -755,11 +767,10 @@ resource "aws_subnet" "ap_northeast_2b_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -769,11 +780,10 @@ resource "aws_route_table" "ap_northeast_2b_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -799,11 +809,10 @@ resource "aws_subnet" "ap_northeast_2b_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -813,11 +822,10 @@ resource "aws_route_table" "ap_northeast_2b_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -849,11 +857,10 @@ resource "aws_network_acl" "ap_northeast_2b_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2b"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2b_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -881,12 +888,11 @@ resource "aws_nat_gateway" "ap_northeast_2c_gateway" {
   
   tags = {
     name = "ap_northeast_2c_gateway"
-    region = "ap-northeast-2"
-    zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "ap-northeast-2c"
+    region = "ap-northeast-2"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -898,10 +904,9 @@ resource "aws_eip" "ap_northeast_2c_gateway" {
     name = "ap_northeast_2c_gateway"
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -913,6 +918,15 @@ resource "aws_instance" "ap_northeast_2c_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.ap_northeast_2c_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2c"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2c_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "ap_northeast_2c_database" {
@@ -927,10 +941,9 @@ resource "aws_eip" "ap_northeast_2c_database" {
     name = "ap_northeast_2c_gateway"
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -942,6 +955,15 @@ resource "aws_instance" "ap_northeast_2c_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.ap_northeast_2c_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2c"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2c_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "ap_northeast_2c_database" {
@@ -952,7 +974,7 @@ resource "aws_ebs_volume" "ap_northeast_2c_database" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2c"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -970,11 +992,10 @@ resource "aws_subnet" "ap_northeast_2c_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -984,11 +1005,10 @@ resource "aws_route_table" "ap_northeast_2c_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1014,11 +1034,10 @@ resource "aws_subnet" "ap_northeast_2c_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1028,11 +1047,10 @@ resource "aws_route_table" "ap_northeast_2c_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1068,11 +1086,10 @@ resource "aws_subnet" "ap_northeast_2c_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1082,11 +1099,10 @@ resource "aws_route_table" "ap_northeast_2c_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1112,11 +1128,10 @@ resource "aws_subnet" "ap_northeast_2c_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1126,11 +1141,10 @@ resource "aws_route_table" "ap_northeast_2c_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1162,11 +1176,10 @@ resource "aws_network_acl" "ap_northeast_2c_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2c"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2c_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -1194,12 +1207,11 @@ resource "aws_nat_gateway" "ap_northeast_2d_gateway" {
   
   tags = {
     name = "ap_northeast_2d_gateway"
-    region = "ap-northeast-2"
-    zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     env = "production"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    zone = "ap-northeast-2d"
+    region = "ap-northeast-2"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1211,10 +1223,9 @@ resource "aws_eip" "ap_northeast_2d_gateway" {
     name = "ap_northeast_2d_gateway"
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1226,6 +1237,15 @@ resource "aws_instance" "ap_northeast_2d_gateway" {
     aws_security_group.gateway.id
   ]
   subnet_id = aws_subnet.ap_northeast_2d_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2d"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2d_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_network_interface" "ap_northeast_2d_database" {
@@ -1240,10 +1260,9 @@ resource "aws_eip" "ap_northeast_2d_database" {
     name = "ap_northeast_2d_gateway"
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1255,6 +1274,15 @@ resource "aws_instance" "ap_northeast_2d_database" {
     aws_security_group.storage.id
   ]
   subnet_id = aws_subnet.ap_northeast_2d_gateway.id
+  
+  tags = {
+    env = "production"
+    zone = "ap-northeast-2d"
+    region = "ap-northeast-2"
+    name = "ap_northeast_2d_gateway"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
+  }
 }
 
 resource "aws_ebs_volume" "ap_northeast_2d_database" {
@@ -1265,7 +1293,7 @@ resource "aws_ebs_volume" "ap_northeast_2d_database" {
     region = "ap-northeast-2"
     zone = "ap-northeast-2d"
     author = "Lance Pollard"
-    planned = "2020-07-31T22:25:32-07:00"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1283,11 +1311,10 @@ resource "aws_subnet" "ap_northeast_2d_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1297,11 +1324,10 @@ resource "aws_route_table" "ap_northeast_2d_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1327,11 +1353,10 @@ resource "aws_subnet" "ap_northeast_2d_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1341,11 +1366,10 @@ resource "aws_route_table" "ap_northeast_2d_compute" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_compute"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1381,11 +1405,10 @@ resource "aws_subnet" "ap_northeast_2d_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1395,11 +1418,10 @@ resource "aws_route_table" "ap_northeast_2d_storage" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_storage"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1425,11 +1447,10 @@ resource "aws_subnet" "ap_northeast_2d_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1439,11 +1460,10 @@ resource "aws_route_table" "ap_northeast_2d_connect" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_connect"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -1475,11 +1495,10 @@ resource "aws_network_acl" "ap_northeast_2d_gateway" {
   tags = {
     env = "production"
     zone = "ap-northeast-2d"
-    author = "Lance Pollard"
     region = "ap-northeast-2"
     name = "ap_northeast_2d_gateway"
-    build_version = "1.0.2"
-    planned = "2020-07-31T22:25:32-07:00"
+    author = "Lance Pollard"
+    moment = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
