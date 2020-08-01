@@ -3,6 +3,8 @@
 
 This is a Node.js function that generates Terraform configuration files for you to run Terraform on. It makes it so Terraform runs fast on the potentially thousands of resources it creates, as opposed to using fancy syntax features of the Terraform script, which break down quickly both in terms of performance and capability.
 
+https://ec2instances.info/
+
 ```
 npm install @lancejpollard/tierra.aws.cloud.js
 ```
