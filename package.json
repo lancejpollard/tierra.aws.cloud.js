@@ -1,6 +1,33 @@
 {
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "moment": "^2.27.0"
-  }
+  },
+  "name": "@lancejpollard/tierra.aws.cloud.js",
+  "description": "```hcl terraform {   required_version = \">= 0.12\" }",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "cd fast && node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lancejpollard/tierra.aws.cloud.js.git"
+  },
+  "keywords": [
+    "aws",
+    "cloud",
+    "infrastructure",
+    "terraform"
+  ],
+  "author": "Lance Pollard <lp@elk.fm>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lancejpollard/tierra.aws.cloud.js/issues"
+  },
+  "homepage": "https://github.com/lancejpollard/tierra.aws.cloud.js#readme",
+  "files": [
+    "./index.js",
+    "./fast/index.js"
+  ]
 }

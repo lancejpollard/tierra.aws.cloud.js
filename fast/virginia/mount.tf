@@ -10,9 +10,9 @@ resource "aws_vpc" "vpc" {
     name = "vpc"
     env = "front"
     region = "us-east-1"
-    creator = "Lance"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    author = "Lance Pollard"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -37,9 +37,9 @@ resource "aws_lb" "lb" {
     name = "vpc"
     env = "front"
     region = "us-east-1"
-    creator = "Lance"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    author = "Lance Pollard"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -52,9 +52,9 @@ resource "aws_lb_target_group" "virginia_gateway" {
     name = "virginia_gateway"
     env = "front"
     region = "us-east-1"
-    creator = "Lance"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    author = "Lance Pollard"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -70,9 +70,9 @@ resource "aws_acm_certificate" "virginia_gateway" {
     name = "virginia_gateway"
     env = "front"
     region = "us-east-1"
-    creator = "Lance"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    author = "Lance Pollard"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -96,9 +96,9 @@ resource "aws_internet_gateway" "ig" {
     name = "ig"
     env = "front"
     region = "us-east-1"
-    creator = "Lance"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    author = "Lance Pollard"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -259,10 +259,10 @@ resource "aws_eip" "us_east_1a_gateway" {
     name = "us_east_1a_gateway"
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -274,10 +274,10 @@ resource "aws_nat_gateway" "us_east_1a_gateway" {
     name = "us_east_1a_gateway"
     region = "us-east-1"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -289,11 +289,11 @@ resource "aws_subnet" "us_east_1a_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -303,11 +303,11 @@ resource "aws_route_table" "us_east_1a_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -333,11 +333,11 @@ resource "aws_subnet" "us_east_1a_compute" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -347,11 +347,11 @@ resource "aws_route_table" "us_east_1a_compute" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -387,11 +387,11 @@ resource "aws_subnet" "us_east_1a_storage" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -401,11 +401,11 @@ resource "aws_route_table" "us_east_1a_storage" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -431,11 +431,11 @@ resource "aws_subnet" "us_east_1a_connect" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -445,11 +445,11 @@ resource "aws_route_table" "us_east_1a_connect" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -481,11 +481,11 @@ resource "aws_network_acl" "us_east_1a_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1a"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {
@@ -515,10 +515,10 @@ resource "aws_eip" "us_east_1b_gateway" {
     name = "us_east_1b_gateway"
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -530,10 +530,10 @@ resource "aws_nat_gateway" "us_east_1b_gateway" {
     name = "us_east_1b_gateway"
     region = "us-east-1"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -545,11 +545,11 @@ resource "aws_subnet" "us_east_1b_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -559,11 +559,11 @@ resource "aws_route_table" "us_east_1b_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -589,11 +589,11 @@ resource "aws_subnet" "us_east_1b_compute" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -603,11 +603,11 @@ resource "aws_route_table" "us_east_1b_compute" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -643,11 +643,11 @@ resource "aws_subnet" "us_east_1b_storage" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -657,11 +657,11 @@ resource "aws_route_table" "us_east_1b_storage" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -687,11 +687,11 @@ resource "aws_subnet" "us_east_1b_connect" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -701,11 +701,11 @@ resource "aws_route_table" "us_east_1b_connect" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -737,11 +737,11 @@ resource "aws_network_acl" "us_east_1b_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1b"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {
@@ -771,10 +771,10 @@ resource "aws_eip" "us_east_1c_gateway" {
     name = "us_east_1c_gateway"
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -786,10 +786,10 @@ resource "aws_nat_gateway" "us_east_1c_gateway" {
     name = "us_east_1c_gateway"
     region = "us-east-1"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -801,11 +801,11 @@ resource "aws_subnet" "us_east_1c_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -815,11 +815,11 @@ resource "aws_route_table" "us_east_1c_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -845,11 +845,11 @@ resource "aws_subnet" "us_east_1c_compute" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -859,11 +859,11 @@ resource "aws_route_table" "us_east_1c_compute" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -899,11 +899,11 @@ resource "aws_subnet" "us_east_1c_storage" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -913,11 +913,11 @@ resource "aws_route_table" "us_east_1c_storage" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -943,11 +943,11 @@ resource "aws_subnet" "us_east_1c_connect" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -957,11 +957,11 @@ resource "aws_route_table" "us_east_1c_connect" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -993,11 +993,11 @@ resource "aws_network_acl" "us_east_1c_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1c"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {
@@ -1027,10 +1027,10 @@ resource "aws_eip" "us_east_1d_gateway" {
     name = "us_east_1d_gateway"
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1042,10 +1042,10 @@ resource "aws_nat_gateway" "us_east_1d_gateway" {
     name = "us_east_1d_gateway"
     region = "us-east-1"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1057,11 +1057,11 @@ resource "aws_subnet" "us_east_1d_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1071,11 +1071,11 @@ resource "aws_route_table" "us_east_1d_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1101,11 +1101,11 @@ resource "aws_subnet" "us_east_1d_compute" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1115,11 +1115,11 @@ resource "aws_route_table" "us_east_1d_compute" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1155,11 +1155,11 @@ resource "aws_subnet" "us_east_1d_storage" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1169,11 +1169,11 @@ resource "aws_route_table" "us_east_1d_storage" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1199,11 +1199,11 @@ resource "aws_subnet" "us_east_1d_connect" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1213,11 +1213,11 @@ resource "aws_route_table" "us_east_1d_connect" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1249,11 +1249,11 @@ resource "aws_network_acl" "us_east_1d_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1d"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {
@@ -1283,10 +1283,10 @@ resource "aws_eip" "us_east_1e_gateway" {
     name = "us_east_1e_gateway"
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1298,10 +1298,10 @@ resource "aws_nat_gateway" "us_east_1e_gateway" {
     name = "us_east_1e_gateway"
     region = "us-east-1"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1313,11 +1313,11 @@ resource "aws_subnet" "us_east_1e_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1327,11 +1327,11 @@ resource "aws_route_table" "us_east_1e_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1357,11 +1357,11 @@ resource "aws_subnet" "us_east_1e_compute" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1371,11 +1371,11 @@ resource "aws_route_table" "us_east_1e_compute" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1411,11 +1411,11 @@ resource "aws_subnet" "us_east_1e_storage" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1425,11 +1425,11 @@ resource "aws_route_table" "us_east_1e_storage" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1455,11 +1455,11 @@ resource "aws_subnet" "us_east_1e_connect" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1469,11 +1469,11 @@ resource "aws_route_table" "us_east_1e_connect" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1505,11 +1505,11 @@ resource "aws_network_acl" "us_east_1e_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1e"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {
@@ -1539,10 +1539,10 @@ resource "aws_eip" "us_east_1f_gateway" {
     name = "us_east_1f_gateway"
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1554,10 +1554,10 @@ resource "aws_nat_gateway" "us_east_1f_gateway" {
     name = "us_east_1f_gateway"
     region = "us-east-1"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     env = "front"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1569,11 +1569,11 @@ resource "aws_subnet" "us_east_1f_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1583,11 +1583,11 @@ resource "aws_route_table" "us_east_1f_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1613,11 +1613,11 @@ resource "aws_subnet" "us_east_1f_compute" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1627,11 +1627,11 @@ resource "aws_route_table" "us_east_1f_compute" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1667,11 +1667,11 @@ resource "aws_subnet" "us_east_1f_storage" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1681,11 +1681,11 @@ resource "aws_route_table" "us_east_1f_storage" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1711,11 +1711,11 @@ resource "aws_subnet" "us_east_1f_connect" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1725,11 +1725,11 @@ resource "aws_route_table" "us_east_1f_connect" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
 }
 
@@ -1761,11 +1761,11 @@ resource "aws_network_acl" "us_east_1f_gateway" {
   tags = {
     env = "front"
     zone = "us-east-1f"
-    creator = "Lance"
+    author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "0.0.1"
-    planned = "2020-07-31T21:43:29-07:00"
+    build_version = "1.0.0"
+    planned = undefined
   }
   
   ingress {

@@ -1,16 +1,9 @@
 
-```hcl
-terraform {
-  required_version = ">= 0.12"
-}
+```js
+const aws = require('@lancejpollard/tierra.aws.cloud.js')
 
-provider "aws" {
-  region = "us-west-1"
-  version = "~> 2.70"
-}
-
-module "cloud" {
-  source = "../cloud"
-  domain = "example.com"
-}
+aws({
+  author: 'Lance Pollard',
+  domain: 'example.com'
+})
 ```
