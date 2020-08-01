@@ -531,7 +531,8 @@ function createEnvironment({
       cidr: config[region].cidr + cidrOffset,
       m2,
       author,
-      domain
+      domain,
+      planned
     })
   })
 }
@@ -822,7 +823,8 @@ function createRegion(env, region, {
       cidrBlock: `10.${cidr}.{zone}.0/21`,
       m2,
       author,
-      domain
+      domain,
+      planned
     })
   })
 
@@ -1026,7 +1028,8 @@ function createZone({
       },
       m2,
       author,
-      domain
+      domain,
+      planned
     })
   })
 }
@@ -1208,11 +1211,18 @@ function createInstance({
     name,
     networkInterfaceId,
     tags,
-    m2
+    m2,
+    author,
+    domain,
+    planned
   })
 }
 
-function createAutoscalingGroup() {
+function createAutoscalingGroup({
+  author,
+  domain,
+  planned
+}) {
 
 }
 
@@ -1339,7 +1349,8 @@ function createRouteTable({
       },
       m2,
       author,
-      domain
+      domain,
+      planned
     })
   })
 }
@@ -1449,7 +1460,8 @@ function createACMCertificate({
   tags,
   array,
   m2,
-  author
+  author,
+  planned
 }) {
   m2.resource({
     type: 'aws_acm_certificate',
@@ -1478,7 +1490,8 @@ function createRoute53Zone({
   domain,
   tags,
   m,
-  author
+  author,
+  planned
 }) {
   m.resource({
     type: 'aws_route53_zone',
@@ -1502,7 +1515,8 @@ function createRoute53Record({
   type,
   ttl,
   m,
-  author
+  author,
+  planned
 }) {
   m.resource({
     type: 'aws_route53_record',

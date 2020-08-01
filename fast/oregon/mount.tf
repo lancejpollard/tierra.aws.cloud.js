@@ -11,8 +11,8 @@ resource "aws_vpc" "vpc" {
     env = "front"
     region = "us-west-2"
     author = "Lance Pollard"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -35,8 +35,8 @@ resource "aws_lb" "lb" {
     env = "front"
     region = "us-west-2"
     author = "Lance Pollard"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -50,8 +50,8 @@ resource "aws_lb_target_group" "oregon_gateway" {
     env = "front"
     region = "us-west-2"
     author = "Lance Pollard"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -68,8 +68,8 @@ resource "aws_acm_certificate" "oregon_gateway" {
     env = "front"
     region = "us-west-2"
     author = "Lance Pollard"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -94,8 +94,8 @@ resource "aws_internet_gateway" "ig" {
     env = "front"
     region = "us-west-2"
     author = "Lance Pollard"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -258,8 +258,8 @@ resource "aws_eip" "us_west_2a_gateway" {
     zone = "us-west-2a"
     author = "Lance Pollard"
     region = "us-west-2"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -273,8 +273,8 @@ resource "aws_nat_gateway" "us_west_2a_gateway" {
     zone = "us-west-2a"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -289,8 +289,8 @@ resource "aws_subnet" "us_west_2a_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -303,8 +303,8 @@ resource "aws_route_table" "us_west_2a_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -333,8 +333,8 @@ resource "aws_subnet" "us_west_2a_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -347,8 +347,8 @@ resource "aws_route_table" "us_west_2a_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -387,8 +387,8 @@ resource "aws_subnet" "us_west_2a_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -401,8 +401,8 @@ resource "aws_route_table" "us_west_2a_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -431,8 +431,8 @@ resource "aws_subnet" "us_west_2a_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -445,8 +445,8 @@ resource "aws_route_table" "us_west_2a_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -481,8 +481,8 @@ resource "aws_network_acl" "us_west_2a_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2a_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -514,8 +514,8 @@ resource "aws_eip" "us_west_2b_gateway" {
     zone = "us-west-2b"
     author = "Lance Pollard"
     region = "us-west-2"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -529,8 +529,8 @@ resource "aws_nat_gateway" "us_west_2b_gateway" {
     zone = "us-west-2b"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -545,8 +545,8 @@ resource "aws_subnet" "us_west_2b_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -559,8 +559,8 @@ resource "aws_route_table" "us_west_2b_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -589,8 +589,8 @@ resource "aws_subnet" "us_west_2b_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -603,8 +603,8 @@ resource "aws_route_table" "us_west_2b_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -643,8 +643,8 @@ resource "aws_subnet" "us_west_2b_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -657,8 +657,8 @@ resource "aws_route_table" "us_west_2b_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -687,8 +687,8 @@ resource "aws_subnet" "us_west_2b_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -701,8 +701,8 @@ resource "aws_route_table" "us_west_2b_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -737,8 +737,8 @@ resource "aws_network_acl" "us_west_2b_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2b_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
@@ -770,8 +770,8 @@ resource "aws_eip" "us_west_2c_gateway" {
     zone = "us-west-2c"
     author = "Lance Pollard"
     region = "us-west-2"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -785,8 +785,8 @@ resource "aws_nat_gateway" "us_west_2c_gateway" {
     zone = "us-west-2c"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -801,8 +801,8 @@ resource "aws_subnet" "us_west_2c_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -815,8 +815,8 @@ resource "aws_route_table" "us_west_2c_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -845,8 +845,8 @@ resource "aws_subnet" "us_west_2c_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -859,8 +859,8 @@ resource "aws_route_table" "us_west_2c_compute" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_compute"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -899,8 +899,8 @@ resource "aws_subnet" "us_west_2c_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -913,8 +913,8 @@ resource "aws_route_table" "us_west_2c_storage" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_storage"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -943,8 +943,8 @@ resource "aws_subnet" "us_west_2c_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -957,8 +957,8 @@ resource "aws_route_table" "us_west_2c_connect" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_connect"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
 }
 
@@ -993,8 +993,8 @@ resource "aws_network_acl" "us_west_2c_gateway" {
     author = "Lance Pollard"
     region = "us-west-2"
     name = "us_west_2c_gateway"
-    build_version = "1.0.1"
-    planned = undefined
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
   }
   
   ingress {
