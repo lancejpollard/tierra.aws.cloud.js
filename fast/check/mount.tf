@@ -9,10 +9,10 @@ resource "aws_route53_zone" "domain" {
   
   tags = {
     name = "world"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     env = "check"
     author = "Lance Pollard"
-    planned = "2020-07-31T21:55:55-07:00"
+    planned = "2020-07-31T22:03:06-07:00"
   }
 }
 

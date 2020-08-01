@@ -1,6 +1,7 @@
 {
   "version": "1.0.1",
   "dependencies": {
+    "@lancejpollard/tierra.js": "^1.0.1",
     "moment": "^2.27.0"
   },
   "name": "@lancejpollard/tierra.aws.cloud.js",

@@ -11,7 +11,7 @@ resource "aws_vpc" "vpc" {
     env = "front"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -38,7 +38,7 @@ resource "aws_lb" "lb" {
     env = "front"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -53,7 +53,7 @@ resource "aws_lb_target_group" "virginia_gateway" {
     env = "front"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -71,7 +71,7 @@ resource "aws_acm_certificate" "virginia_gateway" {
     env = "front"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -97,7 +97,7 @@ resource "aws_internet_gateway" "ig" {
     env = "front"
     region = "us-east-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -261,7 +261,7 @@ resource "aws_eip" "us_east_1a_gateway" {
     zone = "us-east-1a"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -276,7 +276,7 @@ resource "aws_nat_gateway" "us_east_1a_gateway" {
     zone = "us-east-1a"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -292,7 +292,7 @@ resource "aws_subnet" "us_east_1a_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -306,7 +306,7 @@ resource "aws_route_table" "us_east_1a_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -336,7 +336,7 @@ resource "aws_subnet" "us_east_1a_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -350,7 +350,7 @@ resource "aws_route_table" "us_east_1a_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -390,7 +390,7 @@ resource "aws_subnet" "us_east_1a_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -404,7 +404,7 @@ resource "aws_route_table" "us_east_1a_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -434,7 +434,7 @@ resource "aws_subnet" "us_east_1a_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -448,7 +448,7 @@ resource "aws_route_table" "us_east_1a_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -484,7 +484,7 @@ resource "aws_network_acl" "us_east_1a_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -517,7 +517,7 @@ resource "aws_eip" "us_east_1b_gateway" {
     zone = "us-east-1b"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -532,7 +532,7 @@ resource "aws_nat_gateway" "us_east_1b_gateway" {
     zone = "us-east-1b"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -548,7 +548,7 @@ resource "aws_subnet" "us_east_1b_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -562,7 +562,7 @@ resource "aws_route_table" "us_east_1b_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -592,7 +592,7 @@ resource "aws_subnet" "us_east_1b_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -606,7 +606,7 @@ resource "aws_route_table" "us_east_1b_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -646,7 +646,7 @@ resource "aws_subnet" "us_east_1b_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -660,7 +660,7 @@ resource "aws_route_table" "us_east_1b_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -690,7 +690,7 @@ resource "aws_subnet" "us_east_1b_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -704,7 +704,7 @@ resource "aws_route_table" "us_east_1b_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -740,7 +740,7 @@ resource "aws_network_acl" "us_east_1b_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1b_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -773,7 +773,7 @@ resource "aws_eip" "us_east_1c_gateway" {
     zone = "us-east-1c"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -788,7 +788,7 @@ resource "aws_nat_gateway" "us_east_1c_gateway" {
     zone = "us-east-1c"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -804,7 +804,7 @@ resource "aws_subnet" "us_east_1c_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -818,7 +818,7 @@ resource "aws_route_table" "us_east_1c_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -848,7 +848,7 @@ resource "aws_subnet" "us_east_1c_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -862,7 +862,7 @@ resource "aws_route_table" "us_east_1c_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -902,7 +902,7 @@ resource "aws_subnet" "us_east_1c_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -916,7 +916,7 @@ resource "aws_route_table" "us_east_1c_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -946,7 +946,7 @@ resource "aws_subnet" "us_east_1c_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -960,7 +960,7 @@ resource "aws_route_table" "us_east_1c_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -996,7 +996,7 @@ resource "aws_network_acl" "us_east_1c_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -1029,7 +1029,7 @@ resource "aws_eip" "us_east_1d_gateway" {
     zone = "us-east-1d"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1044,7 +1044,7 @@ resource "aws_nat_gateway" "us_east_1d_gateway" {
     zone = "us-east-1d"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1060,7 +1060,7 @@ resource "aws_subnet" "us_east_1d_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1074,7 +1074,7 @@ resource "aws_route_table" "us_east_1d_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1104,7 +1104,7 @@ resource "aws_subnet" "us_east_1d_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1118,7 +1118,7 @@ resource "aws_route_table" "us_east_1d_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1158,7 +1158,7 @@ resource "aws_subnet" "us_east_1d_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1172,7 +1172,7 @@ resource "aws_route_table" "us_east_1d_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1202,7 +1202,7 @@ resource "aws_subnet" "us_east_1d_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1216,7 +1216,7 @@ resource "aws_route_table" "us_east_1d_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1252,7 +1252,7 @@ resource "aws_network_acl" "us_east_1d_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -1285,7 +1285,7 @@ resource "aws_eip" "us_east_1e_gateway" {
     zone = "us-east-1e"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1300,7 +1300,7 @@ resource "aws_nat_gateway" "us_east_1e_gateway" {
     zone = "us-east-1e"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1316,7 +1316,7 @@ resource "aws_subnet" "us_east_1e_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1330,7 +1330,7 @@ resource "aws_route_table" "us_east_1e_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1360,7 +1360,7 @@ resource "aws_subnet" "us_east_1e_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1374,7 +1374,7 @@ resource "aws_route_table" "us_east_1e_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1414,7 +1414,7 @@ resource "aws_subnet" "us_east_1e_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1428,7 +1428,7 @@ resource "aws_route_table" "us_east_1e_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1458,7 +1458,7 @@ resource "aws_subnet" "us_east_1e_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1472,7 +1472,7 @@ resource "aws_route_table" "us_east_1e_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1508,7 +1508,7 @@ resource "aws_network_acl" "us_east_1e_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1e_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -1541,7 +1541,7 @@ resource "aws_eip" "us_east_1f_gateway" {
     zone = "us-east-1f"
     author = "Lance Pollard"
     region = "us-east-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1556,7 +1556,7 @@ resource "aws_nat_gateway" "us_east_1f_gateway" {
     zone = "us-east-1f"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1572,7 +1572,7 @@ resource "aws_subnet" "us_east_1f_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1586,7 +1586,7 @@ resource "aws_route_table" "us_east_1f_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1616,7 +1616,7 @@ resource "aws_subnet" "us_east_1f_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1630,7 +1630,7 @@ resource "aws_route_table" "us_east_1f_compute" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1670,7 +1670,7 @@ resource "aws_subnet" "us_east_1f_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1684,7 +1684,7 @@ resource "aws_route_table" "us_east_1f_storage" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1714,7 +1714,7 @@ resource "aws_subnet" "us_east_1f_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1728,7 +1728,7 @@ resource "aws_route_table" "us_east_1f_connect" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -1764,7 +1764,7 @@ resource "aws_network_acl" "us_east_1f_gateway" {
     author = "Lance Pollard"
     region = "us-east-1"
     name = "us_east_1f_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   

@@ -11,7 +11,7 @@ resource "aws_vpc" "vpc" {
     env = "front"
     region = "ap-northeast-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -35,7 +35,7 @@ resource "aws_lb" "lb" {
     env = "front"
     region = "ap-northeast-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -50,7 +50,7 @@ resource "aws_lb_target_group" "tokyo_gateway" {
     env = "front"
     region = "ap-northeast-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -68,7 +68,7 @@ resource "aws_acm_certificate" "tokyo_gateway" {
     env = "front"
     region = "ap-northeast-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -94,7 +94,7 @@ resource "aws_internet_gateway" "ig" {
     env = "front"
     region = "ap-northeast-1"
     author = "Lance Pollard"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -258,7 +258,7 @@ resource "aws_eip" "ap_northeast_1a_gateway" {
     zone = "ap-northeast-1a"
     author = "Lance Pollard"
     region = "ap-northeast-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -273,7 +273,7 @@ resource "aws_nat_gateway" "ap_northeast_1a_gateway" {
     zone = "ap-northeast-1a"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -289,7 +289,7 @@ resource "aws_subnet" "ap_northeast_1a_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -303,7 +303,7 @@ resource "aws_route_table" "ap_northeast_1a_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -333,7 +333,7 @@ resource "aws_subnet" "ap_northeast_1a_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -347,7 +347,7 @@ resource "aws_route_table" "ap_northeast_1a_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -387,7 +387,7 @@ resource "aws_subnet" "ap_northeast_1a_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -401,7 +401,7 @@ resource "aws_route_table" "ap_northeast_1a_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -431,7 +431,7 @@ resource "aws_subnet" "ap_northeast_1a_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -445,7 +445,7 @@ resource "aws_route_table" "ap_northeast_1a_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -481,7 +481,7 @@ resource "aws_network_acl" "ap_northeast_1a_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1a_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -514,7 +514,7 @@ resource "aws_eip" "ap_northeast_1c_gateway" {
     zone = "ap-northeast-1c"
     author = "Lance Pollard"
     region = "ap-northeast-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -529,7 +529,7 @@ resource "aws_nat_gateway" "ap_northeast_1c_gateway" {
     zone = "ap-northeast-1c"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -545,7 +545,7 @@ resource "aws_subnet" "ap_northeast_1c_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -559,7 +559,7 @@ resource "aws_route_table" "ap_northeast_1c_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -589,7 +589,7 @@ resource "aws_subnet" "ap_northeast_1c_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -603,7 +603,7 @@ resource "aws_route_table" "ap_northeast_1c_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -643,7 +643,7 @@ resource "aws_subnet" "ap_northeast_1c_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -657,7 +657,7 @@ resource "aws_route_table" "ap_northeast_1c_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -687,7 +687,7 @@ resource "aws_subnet" "ap_northeast_1c_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -701,7 +701,7 @@ resource "aws_route_table" "ap_northeast_1c_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -737,7 +737,7 @@ resource "aws_network_acl" "ap_northeast_1c_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1c_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
@@ -770,7 +770,7 @@ resource "aws_eip" "ap_northeast_1d_gateway" {
     zone = "ap-northeast-1d"
     author = "Lance Pollard"
     region = "ap-northeast-1"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -785,7 +785,7 @@ resource "aws_nat_gateway" "ap_northeast_1d_gateway" {
     zone = "ap-northeast-1d"
     author = "Lance Pollard"
     env = "front"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -801,7 +801,7 @@ resource "aws_subnet" "ap_northeast_1d_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -815,7 +815,7 @@ resource "aws_route_table" "ap_northeast_1d_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -845,7 +845,7 @@ resource "aws_subnet" "ap_northeast_1d_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -859,7 +859,7 @@ resource "aws_route_table" "ap_northeast_1d_compute" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_compute"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -899,7 +899,7 @@ resource "aws_subnet" "ap_northeast_1d_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -913,7 +913,7 @@ resource "aws_route_table" "ap_northeast_1d_storage" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_storage"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -943,7 +943,7 @@ resource "aws_subnet" "ap_northeast_1d_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -957,7 +957,7 @@ resource "aws_route_table" "ap_northeast_1d_connect" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_connect"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
 }
@@ -993,7 +993,7 @@ resource "aws_network_acl" "ap_northeast_1d_gateway" {
     author = "Lance Pollard"
     region = "ap-northeast-1"
     name = "ap_northeast_1d_gateway"
-    build_version = "1.0.0"
+    build_version = "1.0.1"
     planned = undefined
   }
   
