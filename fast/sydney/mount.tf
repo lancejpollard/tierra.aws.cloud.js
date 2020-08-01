@@ -248,6 +248,21 @@ resource "aws_security_group" "storage" {
   }
 }
 
+resource "aws_nat_gateway" "ap_southeast_2a_gateway" {
+  subnet_id = aws_subnet.ap_southeast_2a_gateway.id
+  allocation_id = aws_eip.ap_southeast_2a_gateway.id
+  
+  tags = {
+    name = "ap_southeast_2a_gateway"
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2a"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ap_southeast_2a_gateway" {
   vpc = true
   network_interface = aws_network_interface.ap_southeast_2a_gateway.id
@@ -263,19 +278,61 @@ resource "aws_eip" "ap_southeast_2a_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ap_southeast_2a_gateway" {
+resource "aws_instance" "ap_southeast_2a_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2a"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ap_southeast_2a_gateway.id
-  allocation_id = aws_eip.ap_southeast_2a_gateway.id
+}
+
+resource "aws_network_interface" "ap_southeast_2a_database" {
+  subnet_id = aws_subnet.ap_southeast_2a_gateway.id
+}
+
+resource "aws_eip" "ap_southeast_2a_database" {
+  vpc = true
+  network_interface = aws_network_interface.ap_southeast_2a_database.id
   
   tags = {
     name = "ap_southeast_2a_gateway"
-    region = "ap-southeast-2"
+    env = "production"
     zone = "ap-southeast-2a"
     author = "Lance Pollard"
-    env = "production"
+    region = "ap-southeast-2"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ap_southeast_2a_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2a"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ap_southeast_2a_gateway.id
+}
+
+resource "aws_ebs_volume" "ap_southeast_2a_database" {
+  availability_zone = "ap-southeast-2a"
+  size = 40
+  
+  tags = {
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2a"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ap_southeast_2a_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ap_southeast_2a_database.id
+  instance_id = aws_instance.ap_southeast_2a_database.id
 }
 
 resource "aws_subnet" "ap_southeast_2a_gateway" {
@@ -504,6 +561,21 @@ resource "aws_network_acl" "ap_southeast_2a_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "ap_southeast_2b_gateway" {
+  subnet_id = aws_subnet.ap_southeast_2b_gateway.id
+  allocation_id = aws_eip.ap_southeast_2b_gateway.id
+  
+  tags = {
+    name = "ap_southeast_2b_gateway"
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2b"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ap_southeast_2b_gateway" {
   vpc = true
   network_interface = aws_network_interface.ap_southeast_2b_gateway.id
@@ -519,19 +591,61 @@ resource "aws_eip" "ap_southeast_2b_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ap_southeast_2b_gateway" {
+resource "aws_instance" "ap_southeast_2b_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2b"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ap_southeast_2b_gateway.id
-  allocation_id = aws_eip.ap_southeast_2b_gateway.id
+}
+
+resource "aws_network_interface" "ap_southeast_2b_database" {
+  subnet_id = aws_subnet.ap_southeast_2b_gateway.id
+}
+
+resource "aws_eip" "ap_southeast_2b_database" {
+  vpc = true
+  network_interface = aws_network_interface.ap_southeast_2b_database.id
   
   tags = {
     name = "ap_southeast_2b_gateway"
-    region = "ap-southeast-2"
+    env = "production"
     zone = "ap-southeast-2b"
     author = "Lance Pollard"
-    env = "production"
+    region = "ap-southeast-2"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ap_southeast_2b_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2b"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ap_southeast_2b_gateway.id
+}
+
+resource "aws_ebs_volume" "ap_southeast_2b_database" {
+  availability_zone = "ap-southeast-2b"
+  size = 40
+  
+  tags = {
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2b"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ap_southeast_2b_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ap_southeast_2b_database.id
+  instance_id = aws_instance.ap_southeast_2b_database.id
 }
 
 resource "aws_subnet" "ap_southeast_2b_gateway" {
@@ -760,6 +874,21 @@ resource "aws_network_acl" "ap_southeast_2b_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "ap_southeast_2c_gateway" {
+  subnet_id = aws_subnet.ap_southeast_2c_gateway.id
+  allocation_id = aws_eip.ap_southeast_2c_gateway.id
+  
+  tags = {
+    name = "ap_southeast_2c_gateway"
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2c"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ap_southeast_2c_gateway" {
   vpc = true
   network_interface = aws_network_interface.ap_southeast_2c_gateway.id
@@ -775,19 +904,61 @@ resource "aws_eip" "ap_southeast_2c_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ap_southeast_2c_gateway" {
+resource "aws_instance" "ap_southeast_2c_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2c"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ap_southeast_2c_gateway.id
-  allocation_id = aws_eip.ap_southeast_2c_gateway.id
+}
+
+resource "aws_network_interface" "ap_southeast_2c_database" {
+  subnet_id = aws_subnet.ap_southeast_2c_gateway.id
+}
+
+resource "aws_eip" "ap_southeast_2c_database" {
+  vpc = true
+  network_interface = aws_network_interface.ap_southeast_2c_database.id
   
   tags = {
     name = "ap_southeast_2c_gateway"
-    region = "ap-southeast-2"
+    env = "production"
     zone = "ap-southeast-2c"
     author = "Lance Pollard"
-    env = "production"
+    region = "ap-southeast-2"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ap_southeast_2c_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ap-southeast-2c"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ap_southeast_2c_gateway.id
+}
+
+resource "aws_ebs_volume" "ap_southeast_2c_database" {
+  availability_zone = "ap-southeast-2c"
+  size = 40
+  
+  tags = {
+    region = "ap-southeast-2"
+    zone = "ap-southeast-2c"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ap_southeast_2c_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ap_southeast_2c_database.id
+  instance_id = aws_instance.ap_southeast_2c_database.id
 }
 
 resource "aws_subnet" "ap_southeast_2c_gateway" {

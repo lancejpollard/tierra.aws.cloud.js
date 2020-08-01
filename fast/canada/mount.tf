@@ -248,6 +248,21 @@ resource "aws_security_group" "storage" {
   }
 }
 
+resource "aws_nat_gateway" "ca_central_1a_gateway" {
+  subnet_id = aws_subnet.ca_central_1a_gateway.id
+  allocation_id = aws_eip.ca_central_1a_gateway.id
+  
+  tags = {
+    name = "ca_central_1a_gateway"
+    region = "ca-central-1"
+    zone = "ca-central-1a"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ca_central_1a_gateway" {
   vpc = true
   network_interface = aws_network_interface.ca_central_1a_gateway.id
@@ -263,19 +278,61 @@ resource "aws_eip" "ca_central_1a_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ca_central_1a_gateway" {
+resource "aws_instance" "ca_central_1a_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1a"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ca_central_1a_gateway.id
-  allocation_id = aws_eip.ca_central_1a_gateway.id
+}
+
+resource "aws_network_interface" "ca_central_1a_database" {
+  subnet_id = aws_subnet.ca_central_1a_gateway.id
+}
+
+resource "aws_eip" "ca_central_1a_database" {
+  vpc = true
+  network_interface = aws_network_interface.ca_central_1a_database.id
   
   tags = {
     name = "ca_central_1a_gateway"
-    region = "ca-central-1"
+    env = "production"
     zone = "ca-central-1a"
     author = "Lance Pollard"
-    env = "production"
+    region = "ca-central-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ca_central_1a_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1a"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ca_central_1a_gateway.id
+}
+
+resource "aws_ebs_volume" "ca_central_1a_database" {
+  availability_zone = "ca-central-1a"
+  size = 40
+  
+  tags = {
+    region = "ca-central-1"
+    zone = "ca-central-1a"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ca_central_1a_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ca_central_1a_database.id
+  instance_id = aws_instance.ca_central_1a_database.id
 }
 
 resource "aws_subnet" "ca_central_1a_gateway" {
@@ -504,6 +561,21 @@ resource "aws_network_acl" "ca_central_1a_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "ca_central_1b_gateway" {
+  subnet_id = aws_subnet.ca_central_1b_gateway.id
+  allocation_id = aws_eip.ca_central_1b_gateway.id
+  
+  tags = {
+    name = "ca_central_1b_gateway"
+    region = "ca-central-1"
+    zone = "ca-central-1b"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ca_central_1b_gateway" {
   vpc = true
   network_interface = aws_network_interface.ca_central_1b_gateway.id
@@ -519,19 +591,61 @@ resource "aws_eip" "ca_central_1b_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ca_central_1b_gateway" {
+resource "aws_instance" "ca_central_1b_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1b"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ca_central_1b_gateway.id
-  allocation_id = aws_eip.ca_central_1b_gateway.id
+}
+
+resource "aws_network_interface" "ca_central_1b_database" {
+  subnet_id = aws_subnet.ca_central_1b_gateway.id
+}
+
+resource "aws_eip" "ca_central_1b_database" {
+  vpc = true
+  network_interface = aws_network_interface.ca_central_1b_database.id
   
   tags = {
     name = "ca_central_1b_gateway"
-    region = "ca-central-1"
+    env = "production"
     zone = "ca-central-1b"
     author = "Lance Pollard"
-    env = "production"
+    region = "ca-central-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ca_central_1b_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1b"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ca_central_1b_gateway.id
+}
+
+resource "aws_ebs_volume" "ca_central_1b_database" {
+  availability_zone = "ca-central-1b"
+  size = 40
+  
+  tags = {
+    region = "ca-central-1"
+    zone = "ca-central-1b"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ca_central_1b_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ca_central_1b_database.id
+  instance_id = aws_instance.ca_central_1b_database.id
 }
 
 resource "aws_subnet" "ca_central_1b_gateway" {
@@ -760,6 +874,21 @@ resource "aws_network_acl" "ca_central_1b_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "ca_central_1d_gateway" {
+  subnet_id = aws_subnet.ca_central_1d_gateway.id
+  allocation_id = aws_eip.ca_central_1d_gateway.id
+  
+  tags = {
+    name = "ca_central_1d_gateway"
+    region = "ca-central-1"
+    zone = "ca-central-1d"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "ca_central_1d_gateway" {
   vpc = true
   network_interface = aws_network_interface.ca_central_1d_gateway.id
@@ -775,19 +904,61 @@ resource "aws_eip" "ca_central_1d_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "ca_central_1d_gateway" {
+resource "aws_instance" "ca_central_1d_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1d"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.ca_central_1d_gateway.id
-  allocation_id = aws_eip.ca_central_1d_gateway.id
+}
+
+resource "aws_network_interface" "ca_central_1d_database" {
+  subnet_id = aws_subnet.ca_central_1d_gateway.id
+}
+
+resource "aws_eip" "ca_central_1d_database" {
+  vpc = true
+  network_interface = aws_network_interface.ca_central_1d_database.id
   
   tags = {
     name = "ca_central_1d_gateway"
-    region = "ca-central-1"
+    env = "production"
     zone = "ca-central-1d"
     author = "Lance Pollard"
-    env = "production"
+    region = "ca-central-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "ca_central_1d_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "ca-central-1d"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.ca_central_1d_gateway.id
+}
+
+resource "aws_ebs_volume" "ca_central_1d_database" {
+  availability_zone = "ca-central-1d"
+  size = 40
+  
+  tags = {
+    region = "ca-central-1"
+    zone = "ca-central-1d"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "ca_central_1d_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.ca_central_1d_database.id
+  instance_id = aws_instance.ca_central_1d_database.id
 }
 
 resource "aws_subnet" "ca_central_1d_gateway" {

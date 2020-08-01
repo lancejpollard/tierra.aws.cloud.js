@@ -907,16 +907,6 @@ function createZone({
     planned
   }
 
-  createInstance({
-    name: gatewayName,
-    networkInterfaceId: `aws_network_interface.${gatewayName}.id`,
-    tags,
-    m2,
-    author,
-    domain,
-    planned
-  })
-
   createNATGateway({
     name: gatewayName,
     subnetId,
@@ -933,6 +923,81 @@ function createZone({
     author,
     domain,
     planned
+  })
+
+  createInstance({
+    name: gatewayName,
+    networkInterfaceId: `aws_network_interface.${gatewayName}.id`,
+    tags,
+    m2,
+    author,
+    domain,
+    planned,
+    zone,
+    subnetId,
+    securityGroupIds: [
+      `aws_security_group.gateway.id`
+    ]
+  })
+
+  m2.resource({
+    type: 'aws_network_interface',
+    name: `${zone.replace(/-/g, '_')}_database`,
+    blob: {
+      subnet_id: {
+        type: 'key',
+        blob: subnetId
+      }
+    }
+  })
+
+  createInstance({
+    name: `${zone.replace(/-/g, '_')}_database`,
+    networkInterfaceId: `aws_network_interface.${zone.replace(/-/g, '_')}_database.id`,
+    tags,
+    m2,
+    author,
+    domain,
+    planned,
+    zone,
+    subnetId,
+    securityGroupIds: [
+      `aws_security_group.storage.id`
+    ]
+  })
+
+  m2.resource({
+    type: 'aws_ebs_volume',
+    name: `${zone.replace(/-/g, '_')}_database`,
+    blob: {
+      availability_zone: zone,
+      size: 40,
+      tags: {
+        type: 'map',
+        blob: {
+          region: regionCode,
+          zone,
+          author,
+          planned
+        }
+      }
+    }
+  })
+
+  m2.resource({
+    type: 'aws_volume_attachment',
+    name: `${zone.replace(/-/g, '_')}_database`,
+    blob: {
+      device_name: '/dev/sdh',
+      volume_id: {
+        type: 'key',
+        blob: `aws_ebs_volume.${zone.replace(/-/g, '_')}_database.id`
+      },
+      instance_id: {
+        type: 'key',
+        blob: `aws_instance.${zone.replace(/-/g, '_')}_database.id`
+      }
+    }
   })
 
   createSubnet({
@@ -1206,7 +1271,10 @@ function createInstance({
   m2,
   author,
   domain,
-  planned
+  planned,
+  zone,
+  subnetId,
+  securityGroupIds = []
 }) {
   createEIP({
     name,
@@ -1216,6 +1284,26 @@ function createInstance({
     author,
     domain,
     planned
+  })
+
+  m2.resource({
+    type: 'aws_instance',
+    name,
+    blob: {
+      ami: "ami-0c55b159cbfafe1f0",
+      instance_type: 't1.micro',
+      availability_zone: zone,
+      vpc_security_group_ids: securityGroupIds.map(x => {
+        return {
+          type: 'key',
+          blob: x
+        }
+      }),
+      subnet_id: {
+        type: 'key',
+        blob: subnetId
+      }
+    }
   })
 }
 

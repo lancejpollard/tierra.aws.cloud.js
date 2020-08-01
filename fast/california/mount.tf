@@ -5,7 +5,7 @@ provider "aws" {
 
 resource "aws_vpc" "vpc" {
   cidr_block = "10.1.0.0/16"
-  
+
   tags = {
     name = "vpc"
     env = "production"
@@ -29,7 +29,7 @@ resource "aws_lb" "lb" {
     aws_subnet.us_west_1b_gateway.id,
     aws_subnet.us_west_1c_gateway.id
   ]
-  
+
   tags = {
     name = "vpc"
     env = "production"
@@ -44,7 +44,7 @@ resource "aws_lb_target_group" "california_gateway" {
   port = "80"
   protocol = "HTTP"
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     name = "california_gateway"
     env = "production"
@@ -58,11 +58,11 @@ resource "aws_lb_target_group" "california_gateway" {
 resource "aws_acm_certificate" "california_gateway" {
   domain_name = "example.com"
   validation_method = "DNS"
-  
+
   lifecycle {
     create_before_destroy = true
   }
-  
+
   tags = {
     name = "california_gateway"
     env = "production"
@@ -79,7 +79,7 @@ resource "aws_lb_listener" "california_gateway" {
   protocol = "HTTPS"
   ssl_policy = "ELBSecurityPolicy-2016-08"
   certificate_arn = aws_acm_certificate.california_gateway.arn
-  
+
   default_action {
     type = "forward"
     target_group_arn = aws_lb_target_group.california_gateway.arn
@@ -88,7 +88,7 @@ resource "aws_lb_listener" "california_gateway" {
 
 resource "aws_internet_gateway" "ig" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     name = "ig"
     env = "production"
@@ -102,7 +102,7 @@ resource "aws_internet_gateway" "ig" {
 resource "aws_security_group" "gateway" {
   description = "Allow communication of gateway with internet and compute"
   vpc_id = aws_vpc.vpc.id
-  
+
   ingress {
     from_port = 443
     to_port = 443
@@ -111,7 +111,7 @@ resource "aws_security_group" "gateway" {
       "0.0.0.0/0"
     ]
   }
-  
+
   ingress {
     from_port = 80
     to_port = 80
@@ -120,7 +120,7 @@ resource "aws_security_group" "gateway" {
       "0.0.0.0/0"
     ]
   }
-  
+
   ingress {
     from_port = 11111
     to_port = 11111
@@ -131,7 +131,7 @@ resource "aws_security_group" "gateway" {
       "10.1.64.0/21"
     ]
   }
-  
+
   egress {
     from_port = 443
     to_port = 443
@@ -140,7 +140,7 @@ resource "aws_security_group" "gateway" {
       "0.0.0.0/0"
     ]
   }
-  
+
   egress {
     from_port = 80
     to_port = 80
@@ -149,7 +149,7 @@ resource "aws_security_group" "gateway" {
       "0.0.0.0/0"
     ]
   }
-  
+
   egress {
     from_port = 11111
     to_port = 11111
@@ -165,7 +165,7 @@ resource "aws_security_group" "gateway" {
 resource "aws_security_group" "compute" {
   description = "Allow compute to communicate with internal nodes only"
   vpc_id = aws_vpc.vpc.id
-  
+
   ingress {
     from_port = 11111
     to_port = 11111
@@ -174,7 +174,7 @@ resource "aws_security_group" "compute" {
       "10.0.0.0/8"
     ]
   }
-  
+
   egress {
     from_port = 11111
     to_port = 11111
@@ -188,7 +188,7 @@ resource "aws_security_group" "compute" {
 resource "aws_security_group" "connect" {
   description = "Allow communication of connect nodes"
   vpc_id = aws_vpc.vpc.id
-  
+
   ingress {
     from_port = 11111
     to_port = 11111
@@ -199,7 +199,7 @@ resource "aws_security_group" "connect" {
       "10.1.64.0/21"
     ]
   }
-  
+
   egress {
     from_port = 10000
     to_port = 10000
@@ -208,7 +208,7 @@ resource "aws_security_group" "connect" {
       "0.0.0.0/0"
     ]
   }
-  
+
   egress {
     from_port = 11111
     to_port = 11111
@@ -224,7 +224,7 @@ resource "aws_security_group" "connect" {
 resource "aws_security_group" "storage" {
   description = "Allow storage to communicate with compute nodes only"
   vpc_id = aws_vpc.vpc.id
-  
+
   ingress {
     from_port = 11111
     to_port = 11111
@@ -235,7 +235,7 @@ resource "aws_security_group" "storage" {
       "10.1.64.0/21"
     ]
   }
-  
+
   egress {
     from_port = 11111
     to_port = 11111
@@ -248,10 +248,25 @@ resource "aws_security_group" "storage" {
   }
 }
 
+resource "aws_nat_gateway" "us_west_1a_gateway" {
+  subnet_id = aws_subnet.us_west_1a_gateway.id
+  allocation_id = aws_eip.us_west_1a_gateway.id
+
+  tags = {
+    name = "us_west_1a_gateway"
+    region = "us-west-1"
+    zone = "us-west-1a"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "us_west_1a_gateway" {
   vpc = true
   network_interface = aws_network_interface.us_west_1a_gateway.id
-  
+
   tags = {
     name = "us_west_1a_gateway"
     env = "production"
@@ -263,26 +278,68 @@ resource "aws_eip" "us_west_1a_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "us_west_1a_gateway" {
+resource "aws_instance" "us_west_1a_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1a"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.us_west_1a_gateway.id
-  allocation_id = aws_eip.us_west_1a_gateway.id
-  
+}
+
+resource "aws_network_interface" "us_west_1a_database" {
+  subnet_id = aws_subnet.us_west_1a_gateway.id
+}
+
+resource "aws_eip" "us_west_1a_database" {
+  vpc = true
+  network_interface = aws_network_interface.us_west_1a_database.id
+
   tags = {
     name = "us_west_1a_gateway"
-    region = "us-west-1"
+    env = "production"
     zone = "us-west-1a"
     author = "Lance Pollard"
-    env = "production"
+    region = "us-west-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "us_west_1a_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1a"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.us_west_1a_gateway.id
+}
+
+resource "aws_ebs_volume" "us_west_1a_database" {
+  availability_zone = "us-west-1a"
+  size = 40
+
+  tags = {
+    region = "us-west-1"
+    zone = "us-west-1a"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "us_west_1a_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.us_west_1a_database.id
+  instance_id = aws_instance.us_west_1a_database.id
 }
 
 resource "aws_subnet" "us_west_1a_gateway" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.8.0/21"
   availability_zone = "us-west-1a"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -296,7 +353,7 @@ resource "aws_subnet" "us_west_1a_gateway" {
 
 resource "aws_route_table" "us_west_1a_gateway" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -326,7 +383,7 @@ resource "aws_subnet" "us_west_1a_compute" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.0.0/21"
   availability_zone = "us-west-1a"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -340,7 +397,7 @@ resource "aws_subnet" "us_west_1a_compute" {
 
 resource "aws_route_table" "us_west_1a_compute" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -380,7 +437,7 @@ resource "aws_subnet" "us_west_1a_storage" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.16.0/21"
   availability_zone = "us-west-1a"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -394,7 +451,7 @@ resource "aws_subnet" "us_west_1a_storage" {
 
 resource "aws_route_table" "us_west_1a_storage" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -424,7 +481,7 @@ resource "aws_subnet" "us_west_1a_connect" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.24.0/21"
   availability_zone = "us-west-1a"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -438,7 +495,7 @@ resource "aws_subnet" "us_west_1a_connect" {
 
 resource "aws_route_table" "us_west_1a_connect" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -474,7 +531,7 @@ resource "aws_network_acl" "us_west_1a_gateway" {
   subnet_ids = [
     aws_subnet.us_west_1a_gateway.id
   ]
-  
+
   tags = {
     env = "production"
     zone = "us-west-1a"
@@ -484,7 +541,7 @@ resource "aws_network_acl" "us_west_1a_gateway" {
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 100
@@ -493,7 +550,7 @@ resource "aws_network_acl" "us_west_1a_gateway" {
     from_port = 443
     to_port = 443
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 200
@@ -504,10 +561,25 @@ resource "aws_network_acl" "us_west_1a_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "us_west_1b_gateway" {
+  subnet_id = aws_subnet.us_west_1b_gateway.id
+  allocation_id = aws_eip.us_west_1b_gateway.id
+
+  tags = {
+    name = "us_west_1b_gateway"
+    region = "us-west-1"
+    zone = "us-west-1b"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "us_west_1b_gateway" {
   vpc = true
   network_interface = aws_network_interface.us_west_1b_gateway.id
-  
+
   tags = {
     name = "us_west_1b_gateway"
     env = "production"
@@ -519,26 +591,68 @@ resource "aws_eip" "us_west_1b_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "us_west_1b_gateway" {
+resource "aws_instance" "us_west_1b_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1b"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.us_west_1b_gateway.id
-  allocation_id = aws_eip.us_west_1b_gateway.id
-  
+}
+
+resource "aws_network_interface" "us_west_1b_database" {
+  subnet_id = aws_subnet.us_west_1b_gateway.id
+}
+
+resource "aws_eip" "us_west_1b_database" {
+  vpc = true
+  network_interface = aws_network_interface.us_west_1b_database.id
+
   tags = {
     name = "us_west_1b_gateway"
-    region = "us-west-1"
+    env = "production"
     zone = "us-west-1b"
     author = "Lance Pollard"
-    env = "production"
+    region = "us-west-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "us_west_1b_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1b"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.us_west_1b_gateway.id
+}
+
+resource "aws_ebs_volume" "us_west_1b_database" {
+  availability_zone = "us-west-1b"
+  size = 40
+
+  tags = {
+    region = "us-west-1"
+    zone = "us-west-1b"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "us_west_1b_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.us_west_1b_database.id
+  instance_id = aws_instance.us_west_1b_database.id
 }
 
 resource "aws_subnet" "us_west_1b_gateway" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.32.0/21"
   availability_zone = "us-west-1b"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -552,7 +666,7 @@ resource "aws_subnet" "us_west_1b_gateway" {
 
 resource "aws_route_table" "us_west_1b_gateway" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -582,7 +696,7 @@ resource "aws_subnet" "us_west_1b_compute" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.24.0/21"
   availability_zone = "us-west-1b"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -596,7 +710,7 @@ resource "aws_subnet" "us_west_1b_compute" {
 
 resource "aws_route_table" "us_west_1b_compute" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -636,7 +750,7 @@ resource "aws_subnet" "us_west_1b_storage" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.40.0/21"
   availability_zone = "us-west-1b"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -650,7 +764,7 @@ resource "aws_subnet" "us_west_1b_storage" {
 
 resource "aws_route_table" "us_west_1b_storage" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -680,7 +794,7 @@ resource "aws_subnet" "us_west_1b_connect" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.48.0/21"
   availability_zone = "us-west-1b"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -694,7 +808,7 @@ resource "aws_subnet" "us_west_1b_connect" {
 
 resource "aws_route_table" "us_west_1b_connect" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -730,7 +844,7 @@ resource "aws_network_acl" "us_west_1b_gateway" {
   subnet_ids = [
     aws_subnet.us_west_1b_gateway.id
   ]
-  
+
   tags = {
     env = "production"
     zone = "us-west-1b"
@@ -740,7 +854,7 @@ resource "aws_network_acl" "us_west_1b_gateway" {
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 100
@@ -749,7 +863,7 @@ resource "aws_network_acl" "us_west_1b_gateway" {
     from_port = 443
     to_port = 443
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 200
@@ -760,10 +874,25 @@ resource "aws_network_acl" "us_west_1b_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "us_west_1c_gateway" {
+  subnet_id = aws_subnet.us_west_1c_gateway.id
+  allocation_id = aws_eip.us_west_1c_gateway.id
+
+  tags = {
+    name = "us_west_1c_gateway"
+    region = "us-west-1"
+    zone = "us-west-1c"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "us_west_1c_gateway" {
   vpc = true
   network_interface = aws_network_interface.us_west_1c_gateway.id
-  
+
   tags = {
     name = "us_west_1c_gateway"
     env = "production"
@@ -775,26 +904,68 @@ resource "aws_eip" "us_west_1c_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "us_west_1c_gateway" {
+resource "aws_instance" "us_west_1c_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1c"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.us_west_1c_gateway.id
-  allocation_id = aws_eip.us_west_1c_gateway.id
-  
+}
+
+resource "aws_network_interface" "us_west_1c_database" {
+  subnet_id = aws_subnet.us_west_1c_gateway.id
+}
+
+resource "aws_eip" "us_west_1c_database" {
+  vpc = true
+  network_interface = aws_network_interface.us_west_1c_database.id
+
   tags = {
     name = "us_west_1c_gateway"
-    region = "us-west-1"
+    env = "production"
     zone = "us-west-1c"
     author = "Lance Pollard"
-    env = "production"
+    region = "us-west-1"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "us_west_1c_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "us-west-1c"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.us_west_1c_gateway.id
+}
+
+resource "aws_ebs_volume" "us_west_1c_database" {
+  availability_zone = "us-west-1c"
+  size = 40
+
+  tags = {
+    region = "us-west-1"
+    zone = "us-west-1c"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "us_west_1c_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.us_west_1c_database.id
+  instance_id = aws_instance.us_west_1c_database.id
 }
 
 resource "aws_subnet" "us_west_1c_gateway" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.56.0/21"
   availability_zone = "us-west-1c"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -808,7 +979,7 @@ resource "aws_subnet" "us_west_1c_gateway" {
 
 resource "aws_route_table" "us_west_1c_gateway" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -838,7 +1009,7 @@ resource "aws_subnet" "us_west_1c_compute" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.48.0/21"
   availability_zone = "us-west-1c"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -852,7 +1023,7 @@ resource "aws_subnet" "us_west_1c_compute" {
 
 resource "aws_route_table" "us_west_1c_compute" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -892,7 +1063,7 @@ resource "aws_subnet" "us_west_1c_storage" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.64.0/21"
   availability_zone = "us-west-1c"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -906,7 +1077,7 @@ resource "aws_subnet" "us_west_1c_storage" {
 
 resource "aws_route_table" "us_west_1c_storage" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -936,7 +1107,7 @@ resource "aws_subnet" "us_west_1c_connect" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = "10.1.72.0/21"
   availability_zone = "us-west-1c"
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -950,7 +1121,7 @@ resource "aws_subnet" "us_west_1c_connect" {
 
 resource "aws_route_table" "us_west_1c_connect" {
   vpc_id = aws_vpc.vpc.id
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -986,7 +1157,7 @@ resource "aws_network_acl" "us_west_1c_gateway" {
   subnet_ids = [
     aws_subnet.us_west_1c_gateway.id
   ]
-  
+
   tags = {
     env = "production"
     zone = "us-west-1c"
@@ -996,7 +1167,7 @@ resource "aws_network_acl" "us_west_1c_gateway" {
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 100
@@ -1005,7 +1176,7 @@ resource "aws_network_acl" "us_west_1c_gateway" {
     from_port = 443
     to_port = 443
   }
-  
+
   ingress {
     protocol = "tcp"
     rule_no = 200

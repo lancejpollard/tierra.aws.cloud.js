@@ -248,6 +248,21 @@ resource "aws_security_group" "storage" {
   }
 }
 
+resource "aws_nat_gateway" "eu_west_3a_gateway" {
+  subnet_id = aws_subnet.eu_west_3a_gateway.id
+  allocation_id = aws_eip.eu_west_3a_gateway.id
+  
+  tags = {
+    name = "eu_west_3a_gateway"
+    region = "eu-west-3"
+    zone = "eu-west-3a"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "eu_west_3a_gateway" {
   vpc = true
   network_interface = aws_network_interface.eu_west_3a_gateway.id
@@ -263,19 +278,61 @@ resource "aws_eip" "eu_west_3a_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "eu_west_3a_gateway" {
+resource "aws_instance" "eu_west_3a_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3a"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.eu_west_3a_gateway.id
-  allocation_id = aws_eip.eu_west_3a_gateway.id
+}
+
+resource "aws_network_interface" "eu_west_3a_database" {
+  subnet_id = aws_subnet.eu_west_3a_gateway.id
+}
+
+resource "aws_eip" "eu_west_3a_database" {
+  vpc = true
+  network_interface = aws_network_interface.eu_west_3a_database.id
   
   tags = {
     name = "eu_west_3a_gateway"
-    region = "eu-west-3"
+    env = "production"
     zone = "eu-west-3a"
     author = "Lance Pollard"
-    env = "production"
+    region = "eu-west-3"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "eu_west_3a_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3a"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.eu_west_3a_gateway.id
+}
+
+resource "aws_ebs_volume" "eu_west_3a_database" {
+  availability_zone = "eu-west-3a"
+  size = 40
+  
+  tags = {
+    region = "eu-west-3"
+    zone = "eu-west-3a"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "eu_west_3a_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.eu_west_3a_database.id
+  instance_id = aws_instance.eu_west_3a_database.id
 }
 
 resource "aws_subnet" "eu_west_3a_gateway" {
@@ -504,6 +561,21 @@ resource "aws_network_acl" "eu_west_3a_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "eu_west_3b_gateway" {
+  subnet_id = aws_subnet.eu_west_3b_gateway.id
+  allocation_id = aws_eip.eu_west_3b_gateway.id
+  
+  tags = {
+    name = "eu_west_3b_gateway"
+    region = "eu-west-3"
+    zone = "eu-west-3b"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "eu_west_3b_gateway" {
   vpc = true
   network_interface = aws_network_interface.eu_west_3b_gateway.id
@@ -519,19 +591,61 @@ resource "aws_eip" "eu_west_3b_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "eu_west_3b_gateway" {
+resource "aws_instance" "eu_west_3b_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3b"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.eu_west_3b_gateway.id
-  allocation_id = aws_eip.eu_west_3b_gateway.id
+}
+
+resource "aws_network_interface" "eu_west_3b_database" {
+  subnet_id = aws_subnet.eu_west_3b_gateway.id
+}
+
+resource "aws_eip" "eu_west_3b_database" {
+  vpc = true
+  network_interface = aws_network_interface.eu_west_3b_database.id
   
   tags = {
     name = "eu_west_3b_gateway"
-    region = "eu-west-3"
+    env = "production"
     zone = "eu-west-3b"
     author = "Lance Pollard"
-    env = "production"
+    region = "eu-west-3"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "eu_west_3b_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3b"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.eu_west_3b_gateway.id
+}
+
+resource "aws_ebs_volume" "eu_west_3b_database" {
+  availability_zone = "eu-west-3b"
+  size = 40
+  
+  tags = {
+    region = "eu-west-3"
+    zone = "eu-west-3b"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "eu_west_3b_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.eu_west_3b_database.id
+  instance_id = aws_instance.eu_west_3b_database.id
 }
 
 resource "aws_subnet" "eu_west_3b_gateway" {
@@ -760,6 +874,21 @@ resource "aws_network_acl" "eu_west_3b_gateway" {
   }
 }
 
+resource "aws_nat_gateway" "eu_west_3c_gateway" {
+  subnet_id = aws_subnet.eu_west_3c_gateway.id
+  allocation_id = aws_eip.eu_west_3c_gateway.id
+  
+  tags = {
+    name = "eu_west_3c_gateway"
+    region = "eu-west-3"
+    zone = "eu-west-3c"
+    author = "Lance Pollard"
+    env = "production"
+    build_version = "1.0.2"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
 resource "aws_eip" "eu_west_3c_gateway" {
   vpc = true
   network_interface = aws_network_interface.eu_west_3c_gateway.id
@@ -775,19 +904,61 @@ resource "aws_eip" "eu_west_3c_gateway" {
   }
 }
 
-resource "aws_nat_gateway" "eu_west_3c_gateway" {
+resource "aws_instance" "eu_west_3c_gateway" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3c"
+  vpc_security_group_ids = [
+    aws_security_group.gateway.id
+  ]
   subnet_id = aws_subnet.eu_west_3c_gateway.id
-  allocation_id = aws_eip.eu_west_3c_gateway.id
+}
+
+resource "aws_network_interface" "eu_west_3c_database" {
+  subnet_id = aws_subnet.eu_west_3c_gateway.id
+}
+
+resource "aws_eip" "eu_west_3c_database" {
+  vpc = true
+  network_interface = aws_network_interface.eu_west_3c_database.id
   
   tags = {
     name = "eu_west_3c_gateway"
-    region = "eu-west-3"
+    env = "production"
     zone = "eu-west-3c"
     author = "Lance Pollard"
-    env = "production"
+    region = "eu-west-3"
     build_version = "1.0.2"
     planned = "2020-07-31T22:25:32-07:00"
   }
+}
+
+resource "aws_instance" "eu_west_3c_database" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t1.micro"
+  availability_zone = "eu-west-3c"
+  vpc_security_group_ids = [
+    aws_security_group.storage.id
+  ]
+  subnet_id = aws_subnet.eu_west_3c_gateway.id
+}
+
+resource "aws_ebs_volume" "eu_west_3c_database" {
+  availability_zone = "eu-west-3c"
+  size = 40
+  
+  tags = {
+    region = "eu-west-3"
+    zone = "eu-west-3c"
+    author = "Lance Pollard"
+    planned = "2020-07-31T22:25:32-07:00"
+  }
+}
+
+resource "aws_volume_attachment" "eu_west_3c_database" {
+  device_name = "/dev/sdh"
+  volume_id = aws_ebs_volume.eu_west_3c_database.id
+  instance_id = aws_instance.eu_west_3c_database.id
 }
 
 resource "aws_subnet" "eu_west_3c_gateway" {
