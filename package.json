@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "^2.27.0"
+  }
+}
