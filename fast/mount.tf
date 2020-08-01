@@ -11,11 +11,6 @@ provider "aws" {
   region = "us-west-1"
 }
 
-module "staging" {
-  environment = "staging"
-  source = "./staging"
-}
-
 module "production" {
   environment = "production"
   source = "./production"

@@ -355,10 +355,15 @@ function createCloud({
   server,
   bucket,
   caller,
-  design
+  design,
+  branch
 }) {
   moment = moment || Moment().format()
   region = normalizeRegion(region, device, system)
+  branch = branch || 'production'
+  if (!Array.isArray(branch)) {
+    branch = [branch]
+  }
 
   let goal = {
     region,
@@ -367,7 +372,8 @@ function createCloud({
     server,
     bucket,
     caller,
-    domain
+    domain,
+    branch
   }
 
   let defaultTags = {
@@ -397,21 +403,15 @@ function createCloud({
     }
   })
 
-  createEnvironment({
-    env: 'staging',
-    cidrOffset: 0,
-    t,
-    domain,
-    defaultTags,
-    goal
-  })
-  createEnvironment({
-    env: 'production',
-    cidrOffset: 64,
-    t,
-    domain,
-    defaultTags,
-    goal
+  goal.branch.forEach((branch, i) => {
+    createEnvironment({
+      env: branch,
+      cidrOffset: i * 64,
+      t,
+      domain,
+      defaultTags,
+      goal
+    })
   })
 
   t.forEach(blob => {
@@ -456,6 +456,7 @@ function createEnvironment({
 }) {
   let m = createEnvironmentModule(env, t)
   let { domain } = goal
+  let regionGoalList = goal.region.map(x => x.name)
 
   m.variable({
     name: 'environment',
@@ -535,13 +536,16 @@ function createEnvironment({
 
   var endpoint_configuration = []
   Object.keys(config).forEach(region => {
-    endpoint_configuration.push({
-      endpoint_id: {
-        type: 'key',
-        blob: `module.${region}.lb_arn`
-      },
-      weight: 100
-    })
+    let type = config[region].region
+    if (regionGoalList.includes(type)) {
+      endpoint_configuration.push({
+        endpoint_id: {
+          type: 'key',
+          blob: `module.${region}.lb_arn`
+        },
+        weight: 100
+      })
+    }
   })
 
   m.resource({
@@ -560,21 +564,24 @@ function createEnvironment({
   })
 
   Object.keys(config).forEach(region => {
-    let m2 = m.module({
-      name: region,
-      type: region
-    })
+    let type = config[region].region
+    if (regionGoalList.includes(type)) {
+      let m2 = m.module({
+        name: region,
+        type: region
+      })
 
-    createRegion(env, region, {
-      environment: env,
-      region,
-      region_code: config[region].region,
-      zones: config[region].zones,
-      cidr: config[region].cidr + cidrOffset,
-      m2,
-      goal,
-      defaultTags
-    })
+      createRegion(env, region, {
+        environment: env,
+        region,
+        region_code: config[region].region,
+        zones: config[region].zones,
+        cidr: config[region].cidr + cidrOffset,
+        m2,
+        goal,
+        defaultTags
+      })
+    }
   })
 }
 
@@ -680,14 +687,27 @@ function createRegion(env, region, {
     }
   })
 
+  let zoneGoalList
+  goal.region.forEach(x => {
+    if (x.name === regionCode) {
+      zoneGoalList = x.zone.map(x => x.name)
+      if (!zoneGoalList.length) {
+        zoneGoalList.push(config[region].zones[0])
+      }
+      return false
+    }
+  })
+
   var subnets = []
   var subnets2 = []
   zones.forEach((zone, i) => {
-    var subnetName = [zone, 'gateway'].join('_').replace(/-/g, '_')
-    subnets2.push({
-      type: 'key',
-      blob: `aws_subnet.${subnetName}.id`
-    })
+    if (zoneGoalList.includes(zone)) {
+      var subnetName = [zone, 'gateway'].join('_').replace(/-/g, '_')
+      subnets2.push({
+        type: 'key',
+        blob: `aws_subnet.${subnetName}.id`
+      })
+    }
   })
 
   m2.resource({
@@ -842,19 +862,21 @@ function createRegion(env, region, {
   })
 
   zones.forEach((zone, i) => {
-    createZone({
-      region,
-      env,
-      regionCode,
-      zone,
-      vpcId,
-      cidrBlockConfig,
-      cidr: i * 3,
-      cidrBlock: `10.${cidr}.{zone}.0/21`,
-      m2,
-      goal,
-      defaultTags
-    })
+    if (zoneGoalList.includes(zone)) {
+      createZone({
+        region,
+        env,
+        regionCode,
+        zone,
+        vpcId,
+        cidrBlockConfig,
+        cidr: i * 3,
+        cidrBlock: `10.${cidr}.{zone}.0/21`,
+        m2,
+        goal,
+        defaultTags
+      })
+    }
   })
 
   m2.output({

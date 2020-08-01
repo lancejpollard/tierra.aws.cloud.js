@@ -17,6 +17,7 @@ aws({
   domain: 'example.com',
   design: '1.0.0',
   region: 'us-west-1',
+  branch: 'production',
   device: 't1.micro',
   system: 'ami-08a73e98905090559',
   moment: '2020-07-31T22:25:32-07:00',
@@ -46,7 +47,7 @@ aws({
   region: [
     {
       source: 'us-west-1',
-      branch: [
+      sector: [
         {
           source: 'us-west-1a',
           bottom: 1,
